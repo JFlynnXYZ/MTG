@@ -2,7 +2,7 @@
 Music Terrain Generator for Maya
 ##README
 
-Music Terrain Generator (MTG) for Maya is a script that produces terrain from WAV audio files. It is not only limited to plane geometry and can be used on any Polygon based object to manipulate based on the amplitude of the song file.
+Music Terrain Generator (MTG) for Maya is a script that produces terrain from WAV audio files. It is not only limited to plane geometry and can be used on any Polygon based object to manipulate based on the amplitude of a song file. Find out how to use the generator by reading the UserManual under the docs folder.
 
 ##CONTACT
 
