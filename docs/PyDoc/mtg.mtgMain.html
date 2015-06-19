@@ -1,0 +1,302 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module mtg.mtgMain</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="mtg.html"><font color="#ffffff">mtg</font></a>.mtgMain</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:///H:/users/jon/documents/maya/scripts/mtg/mtgmain.py">h:\users\jon\documents\maya\scripts\mtg\mtgmain.py</a></font></td></tr></table>
+    <p><tt>Module&nbsp;of&nbsp;procedures&nbsp;and&nbsp;variables&nbsp;for&nbsp;creating&nbsp;terrain&nbsp;from&nbsp;music.&nbsp;<br>
+&nbsp;<br>
+The&nbsp;idea&nbsp;behind&nbsp;this&nbsp;module&nbsp;is&nbsp;to&nbsp;make&nbsp;a&nbsp;deform&nbsp;polyagonal&nbsp;objects&nbsp;from&nbsp;<br>
+the&nbsp;song&nbsp;amplitudes&nbsp;from&nbsp;wave&nbsp;music&nbsp;files.&nbsp;There&nbsp;is&nbsp;also&nbsp;a&nbsp;function&nbsp;to&nbsp;<br>
+create&nbsp;custom&nbsp;terrain&nbsp;from&nbsp;a&nbsp;selection&nbsp;of&nbsp;image&nbsp;files&nbsp;in&nbsp;the&nbsp;'TEX_DIRECTORY'.<br>
+&nbsp;<br>
+If&nbsp;this&nbsp;code&nbsp;is&nbsp;run&nbsp;from&nbsp;the&nbsp;Maya&nbsp;terminal,&nbsp;then&nbsp;the&nbsp;example&nbsp;code&nbsp;at&nbsp;the&nbsp;<br>
+bottom&nbsp;of&nbsp;this&nbsp;code&nbsp;will&nbsp;be&nbsp;run.&nbsp;For&nbsp;testing&nbsp;purposes,&nbsp;it&nbsp;an&nbsp;examaple&nbsp;has<br>
+also&nbsp;been&nbsp;placed&nbsp;here.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;import&nbsp;maya.cmds&nbsp;as&nbsp;cmds<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;import&nbsp;mtg.terrainWave&nbsp;as&nbsp;tw<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;obj&nbsp;=&nbsp;cmds.polyPlane(name='terraign',&nbsp;w=24,&nbsp;h=24,&nbsp;sx=30,&nbsp;sy=70)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;befBbox&nbsp;=&nbsp;cmds.exactWorldBoundingBox(obj[0])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;#change&nbsp;musicLocation&nbsp;to&nbsp;a&nbsp;song&nbsp;in&nbsp;your&nbsp;directory&nbsp;to&nbsp;test&nbsp;the&nbsp;functions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;song&nbsp;=&nbsp;'D:\\Users\\Jon\\workspace\\Terraign&nbsp;Generator\\01&nbsp;Window.wav'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;songInfo&nbsp;=&nbsp;tw.TerrainWaveFile(song)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#-music_displace">music_displace</a>(songInfo,&nbsp;4,&nbsp;obj[0],&nbsp;vtxDire='y')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;befBbox&nbsp;!=&nbsp;cmds.exactWorldBoundingBox(obj[0])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;True<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;tInfo&nbsp;=&nbsp;<a href="#-create_texture">create_texture</a>('arid')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#-assign_terrain_shader">assign_terrain_shader</a>(tInfo['lambert'][1],&nbsp;obj[0],&nbsp;tInfo['placements'])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;cmds.select(tInfo['lambert'][1])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;appObj&nbsp;=&nbsp;cmds.ls(selection=True)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;appObj&nbsp;==&nbsp;cmds.listRelatives(obj[0],&nbsp;shapes=True)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;True<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;#&nbsp;cleanup<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;cmds.file(f=True,&nbsp;new=True)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;To&nbsp;test/execute&nbsp;the&nbsp;examples&nbsp;in&nbsp;the&nbsp;module&nbsp;documentation&nbsp;make&nbsp;sure&nbsp;that&nbsp;<br>
+&nbsp;you&nbsp;have&nbsp;an&nbsp;empty&nbsp;scene&nbsp;first,&nbsp;then&nbsp;once&nbsp;you&nbsp;have&nbsp;imported&nbsp;the&nbsp;<br>
+&nbsp;mayaFuncs&nbsp;module:<br>
+&nbsp;import&nbsp;doctest<br>
+&nbsp;nfail,&nbsp;ntests&nbsp;=&nbsp;doctest.testmod(mtgMain)</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="maya.cmds.html">maya.cmds</a><br>
+<a href="mayaSnippet.mayaFuncs.html">mayaSnippet.mayaFuncs</a><br>
+</td><td width="25%" valign=top><a href="maya.utils.html">maya.utils</a><br>
+<a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="random.html">random</a><br>
+<a href="mtg.terrainWave.html">mtg.terrainWave</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="mtg.mtgMain.html#COLOUR_SPACES">COLOUR_SPACES</a>
+</font></dt></dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="COLOUR_SPACES">class <strong>COLOUR_SPACES</strong></a></font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Data and other attributes defined here:<br>
+<dl><dt><strong>linear</strong> = 1</dl>
+
+<dl><dt><strong>srgb</strong> = 2</dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-assign_terrain_shader"><strong>assign_terrain_shader</strong></a>(sg, object, placements)</dt><dd><tt>Used&nbsp;to&nbsp;assign&nbsp;a&nbsp;material&nbsp;to&nbsp;an&nbsp;object&nbsp;to&nbsp;the&nbsp;shading&nbsp;group,&nbsp;fit&nbsp;and&nbsp;<br>
+parent&nbsp;any&nbsp;necessary&nbsp;3d&nbsp;placements&nbsp;to&nbsp;the&nbsp;objects&nbsp;so&nbsp;they&nbsp;resize&nbsp;when&nbsp;the&nbsp;<br>
+objects&nbsp;are.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sg&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;materials&nbsp;shading&nbsp;group.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;object&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;A&nbsp;name&nbsp;of&nbsp;an&nbsp;object&nbsp;that&nbsp;will&nbsp;be&nbsp;applied&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;material&nbsp;linked&nbsp;to&nbsp;the&nbsp;shading&nbsp;group.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;placements&nbsp;[tuple]&nbsp;:&nbsp;The&nbsp;3d&nbsp;placements&nbsp;that&nbsp;will&nbsp;be&nbsp;parented&nbsp;under&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;object.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Applies&nbsp;the&nbsp;shader&nbsp;to&nbsp;the&nbsp;object&nbsp;and&nbsp;parents&nbsp;the&nbsp;placements&nbsp;under&nbsp;it.</tt></dd></dl>
+ <dl><dt><a name="-create_file_node"><strong>create_file_node</strong></a>(imgLoca, name, uRep, vRep, uNoise, vNoise)</dt><dd><tt>Creates&nbsp;a&nbsp;file&nbsp;node&nbsp;for&nbsp;an&nbsp;image&nbsp;in&nbsp;a&nbsp;directory&nbsp;and&nbsp;apply&nbsp;options&nbsp;to<br>
+it.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;imgLoca&nbsp;[str]&nbsp;&nbsp;:&nbsp;The&nbsp;image&nbsp;location&nbsp;on&nbsp;the&nbsp;disc&nbsp;drive.&nbsp;Should&nbsp;be&nbsp;in&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;format&nbsp;that&nbsp;is&nbsp;created&nbsp;by&nbsp;'os.path.abspath'.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;file&nbsp;node.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;uRep&nbsp;[float]&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;number&nbsp;of&nbsp;repetitions&nbsp;of&nbsp;the&nbsp;texture&nbsp;in&nbsp;the&nbsp;U-axis&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Y).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;vRep&nbsp;[float]&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;number&nbsp;of&nbsp;repetitions&nbsp;of&nbsp;the&nbsp;texture&nbsp;in&nbsp;the&nbsp;V-axis<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(X).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;uNoise&nbsp;[float]&nbsp;:&nbsp;The&nbsp;amplitude&nbsp;of&nbsp;the&nbsp;noise&nbsp;effect&nbsp;on&nbsp;the&nbsp;texture&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;U-axis&nbsp;(Y).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;vNoise&nbsp;[float]&nbsp;:&nbsp;The&nbsp;amplitude&nbsp;of&nbsp;the&nbsp;noise&nbsp;effect&nbsp;on&nbsp;the&nbsp;texture&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;V-axis&nbsp;(X).<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Creates&nbsp;a&nbsp;file&nbsp;and&nbsp;file2d&nbsp;texture&nbsp;from&nbsp;the&nbsp;'imgLoca'&nbsp;with&nbsp;the&nbsp;options&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;the&nbsp;parameters.&nbsp;It&nbsp;is&nbsp;then&nbsp;returned&nbsp;in&nbsp;a&nbsp;tuple&nbsp;at&nbsp;the&nbsp;end&nbsp;of&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;function.</tt></dd></dl>
+ <dl><dt><a name="-create_files"><strong>create_files</strong></a>(imgLocations, lTexture, nOfTexs, name, uRep, vRep, uNoise, vNoise)</dt><dd><tt>Creates&nbsp;all&nbsp;the&nbsp;file&nbsp;node&nbsp;from&nbsp;the&nbsp;imgLocations&nbsp;and&nbsp;combine&nbsp;it&nbsp;into&nbsp;a<br>
+layered&nbsp;texture&nbsp;using&nbsp;noise&nbsp;as&nbsp;alphas.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;imgLocations&nbsp;[str]&nbsp;:&nbsp;A&nbsp;list&nbsp;of&nbsp;image&nbsp;locations&nbsp;for&nbsp;all&nbsp;the&nbsp;images&nbsp;that<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;be&nbsp;used&nbsp;in&nbsp;a&nbsp;single&nbsp;layer&nbsp;texture.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lTexture&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;layered&nbsp;texture&nbsp;which&nbsp;will&nbsp;hold<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;all&nbsp;the&nbsp;images.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nOfTexs&nbsp;[int]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;This&nbsp;is&nbsp;the&nbsp;number&nbsp;of&nbsp;&nbsp;textures&nbsp;that&nbsp;will&nbsp;be&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;used.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;This&nbsp;is&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;file&nbsp;nodes&nbsp;that&nbsp;will&nbsp;be&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;uRep&nbsp;[float]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;number&nbsp;of&nbsp;repetitions&nbsp;of&nbsp;the&nbsp;file&nbsp;texture&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;U-axis&nbsp;(Y).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;vRep&nbsp;[float]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;number&nbsp;of&nbsp;repetitions&nbsp;of&nbsp;the&nbsp;file&nbsp;texture&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;V-axis&nbsp;(X).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;uNoise&nbsp;[float]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;amplitude&nbsp;of&nbsp;the&nbsp;noise&nbsp;effect&nbsp;on&nbsp;the&nbsp;file&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;texture&nbsp;in&nbsp;the&nbsp;U-axis&nbsp;(Y).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;vNoise&nbsp;[float]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;amplitude&nbsp;of&nbsp;the&nbsp;noise&nbsp;effect&nbsp;on&nbsp;the&nbsp;file&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;texture&nbsp;in&nbsp;the&nbsp;V-axis&nbsp;(X).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;all&nbsp;the&nbsp;file&nbsp;info&nbsp;in&nbsp;the&nbsp;format&nbsp;of&nbsp;(fInfo,&nbsp;noise)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;both&nbsp;being&nbsp;a&nbsp;2&nbsp;tuple&nbsp;of&nbsp;their&nbsp;respective&nbsp;node&nbsp;and&nbsp;place2dTexture<br>
+&nbsp;&nbsp;&nbsp;&nbsp;node.</tt></dd></dl>
+ <dl><dt><a name="-create_texture"><strong>create_texture</strong></a>(cliffType, nOfCTex<font color="#909090">=5</font>, cliffPos<font color="#909090">=(0.75, 0.5)</font>, cRandTexs<font color="#909090">=False</font>, snow<font color="#909090">=True</font>, snowPos<font color="#909090">=(1,)</font>, grass<font color="#909090">=True</font>, grassPos<font color="#909090">=(0,)</font>, grassType<font color="#909090">='lush'</font>, nOfGTex<font color="#909090">=5</font>, gRandTexs<font color="#909090">=False</font>, uRep<font color="#909090">=1.25</font>, vRep<font color="#909090">=1.25</font>, uNoise<font color="#909090">=0.01</font>, vNoise<font color="#909090">=0.01</font>, bDepth<font color="#909090">=0.3</font>, rampType<font color="#909090">=0</font>, rampInterp<font color="#909090">=4</font>, rampUWave<font color="#909090">=0</font>, rampVWave<font color="#909090">=0</font>, rampNoise<font color="#909090">=0</font>, rampFreq<font color="#909090">=0</font>, colSpace<font color="#909090">=2</font>, rendSpace<font color="#909090">=2</font>)</dt><dd><tt>Creates&nbsp;a&nbsp;lambert&nbsp;material&nbsp;for&nbsp;the&nbsp;terrain&nbsp;with&nbsp;a&nbsp;certain&nbsp;style&nbsp;<br>
+dependent&nbsp;on&nbsp;the&nbsp;parameters&nbsp;passed&nbsp;to&nbsp;the&nbsp;function.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cliffType&nbsp;[str]&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;type&nbsp;of&nbsp;cliff&nbsp;texture&nbsp;the&nbsp;terrain&nbsp;will&nbsp;have.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;valid&nbsp;values&nbsp;for&nbsp;this&nbsp;are&nbsp;the&nbsp;names&nbsp;of&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;folders&nbsp;in&nbsp;CLIFF_TEX_DIR.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nOfCTex&nbsp;[int]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;number&nbsp;of&nbsp;cliff&nbsp;textures&nbsp;that&nbsp;will&nbsp;be&nbsp;used&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;together&nbsp;to&nbsp;create&nbsp;the&nbsp;cliff&nbsp;texture.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cliffPos&nbsp;[tuple]&nbsp;&nbsp;:&nbsp;The&nbsp;positions&nbsp;on&nbsp;the&nbsp;ramp&nbsp;shader&nbsp;used.&nbsp;Ranges&nbsp;from<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.0&nbsp;to&nbsp;1.0.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cRandTexs&nbsp;[bool]&nbsp;&nbsp;:&nbsp;If&nbsp;True,&nbsp;the&nbsp;textures&nbsp;will&nbsp;not&nbsp;be&nbsp;of&nbsp;'cliffType'&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;but&nbsp;from&nbsp;all&nbsp;of&nbsp;the&nbsp;files&nbsp;in&nbsp;CLIFF_TEX_DIR.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;snow&nbsp;[bool]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;If&nbsp;True,&nbsp;a&nbsp;snow&nbsp;texture&nbsp;will&nbsp;be&nbsp;used&nbsp;with&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;following&nbsp;options:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snowPos&nbsp;[tuple]&nbsp;:&nbsp;The&nbsp;positions&nbsp;on&nbsp;the&nbsp;ramp&nbsp;shader&nbsp;used.&nbsp;Ranges&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;0.0&nbsp;to&nbsp;1.0.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grass&nbsp;[bool]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;If&nbsp;True,&nbsp;a&nbsp;grass&nbsp;texture&nbsp;will&nbsp;be&nbsp;used&nbsp;with&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;following&nbsp;options:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grassPos&nbsp;[tuple]&nbsp;:&nbsp;The&nbsp;positions&nbsp;on&nbsp;the&nbsp;ramp&nbsp;shader&nbsp;used.&nbsp;Ranges&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;0.0&nbsp;to&nbsp;1.0.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grassType&nbsp;[str]&nbsp;&nbsp;:&nbsp;The&nbsp;type&nbsp;of&nbsp;grass&nbsp;texture&nbsp;the&nbsp;terrain&nbsp;will&nbsp;have.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;value&nbsp;values&nbsp;for&nbsp;this&nbsp;are&nbsp;the&nbsp;names&nbsp;of&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;folders&nbsp;in&nbsp;GRASS_TEX_DIR.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nOfGTex&nbsp;[int]&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;number&nbsp;of&nbsp;grass&nbsp;textures&nbsp;that&nbsp;will&nbsp;be&nbsp;used<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;together&nbsp;to&nbsp;create&nbsp;the&nbsp;grass&nbsp;texture.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gRandTexs&nbsp;[str]&nbsp;&nbsp;:&nbsp;If&nbsp;True,&nbsp;the&nbsp;textures&nbsp;will&nbsp;not&nbsp;be&nbsp;of&nbsp;'grassType'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;but&nbsp;from&nbsp;all&nbsp;of&nbsp;the&nbsp;files&nbsp;in&nbsp;GRASS_TEX_DIR.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;uRep&nbsp;[float]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;number&nbsp;of&nbsp;repetitions&nbsp;of&nbsp;each&nbsp;of&nbsp;the&nbsp;file&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;textures&nbsp;in&nbsp;the&nbsp;U-axis&nbsp;(Y).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;vRep&nbsp;[float]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;number&nbsp;of&nbsp;repetitions&nbsp;of&nbsp;each&nbsp;of&nbsp;the&nbsp;file&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;textures&nbsp;in&nbsp;the&nbsp;V-axis&nbsp;(X).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;uNoise&nbsp;[float]&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;amplitude&nbsp;of&nbsp;the&nbsp;noise&nbsp;effect&nbsp;on&nbsp;each&nbsp;of&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file&nbsp;texture&nbsp;in&nbsp;the&nbsp;U-axis&nbsp;(Y).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;vNoise&nbsp;[float]&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;amplitude&nbsp;of&nbsp;the&nbsp;noise&nbsp;effect&nbsp;on&nbsp;each&nbsp;of&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file&nbsp;texture&nbsp;in&nbsp;the&nbsp;V-axis&nbsp;(X).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bDepth&nbsp;[float]&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;bump&nbsp;depth&nbsp;used&nbsp;on&nbsp;the&nbsp;material.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rampType&nbsp;[int]&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;type&nbsp;of&nbsp;rendering&nbsp;the&nbsp;ramp&nbsp;will&nbsp;take.&nbsp;This&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;involves&nbsp;the&nbsp;direction&nbsp;mainly.&nbsp;The&nbsp;value&nbsp;used&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;relates&nbsp;to&nbsp;the&nbsp;location&nbsp;in&nbsp;the&nbsp;option&nbsp;menu&nbsp;in&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ramp&nbsp;options.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rampInterp&nbsp;[int]&nbsp;&nbsp;:&nbsp;The&nbsp;interpolation&nbsp;of&nbsp;the&nbsp;ramp&nbsp;used&nbsp;to&nbsp;organise&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;textures&nbsp;on&nbsp;the&nbsp;terrain.&nbsp;The&nbsp;value&nbsp;used&nbsp;relates&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;location&nbsp;in&nbsp;the&nbsp;option&nbsp;menu&nbsp;in&nbsp;the&nbsp;ramp&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rampUWave&nbsp;[float]&nbsp;:&nbsp;The&nbsp;ramp&nbsp;textures&nbsp;U&nbsp;wave&nbsp;that&nbsp;will&nbsp;be&nbsp;applied&nbsp;to&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;final&nbsp;terrain&nbsp;texture.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rampVWave&nbsp;[float]&nbsp;:&nbsp;The&nbsp;ramp&nbsp;textures&nbsp;V&nbsp;wave&nbsp;that&nbsp;will&nbsp;be&nbsp;applied&nbsp;to&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;final&nbsp;terrain&nbsp;texture.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rampNoise&nbsp;[float]&nbsp;:&nbsp;The&nbsp;ramp&nbsp;noise&nbsp;that&nbsp;will&nbsp;applied&nbsp;to&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;positioning&nbsp;of&nbsp;each&nbsp;of&nbsp;the&nbsp;textures&nbsp;on&nbsp;the&nbsp;terrain.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rampFreq&nbsp;[float]&nbsp;&nbsp;:&nbsp;The&nbsp;ramp&nbsp;noise&nbsp;frequency.&nbsp;The&nbsp;higher&nbsp;this&nbsp;value,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;larger&nbsp;area&nbsp;effect&nbsp;the&nbsp;noise&nbsp;will&nbsp;have.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;colSpace&nbsp;[float]&nbsp;&nbsp;:&nbsp;Sets&nbsp;the&nbsp;colour&nbsp;of&nbsp;the&nbsp;texture&nbsp;to&nbsp;be&nbsp;in&nbsp;linear&nbsp;colour<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;needed<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates&nbsp;all&nbsp;of&nbsp;the&nbsp;texture&nbsp;files&nbsp;and&nbsp;returns&nbsp;a&nbsp;texture&nbsp;dictionary&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;all&nbsp;the&nbsp;texture&nbsp;files&nbsp;created&nbsp;by&nbsp;this&nbsp;function.</tt></dd></dl>
+ <dl><dt><a name="-move_vtx_positions"><strong>move_vtx_positions</strong></a>(vals, pObject, axis<font color="#909090">='y'</font>, reverse<font color="#909090">=False</font>, seprAxisMv<font color="#909090">=False</font>, refresh<font color="#909090">=True</font>, queue<font color="#909090">=None</font>)</dt><dd><tt>Used&nbsp;to&nbsp;move&nbsp;the&nbsp;vertex&nbsp;positions&nbsp;of&nbsp;an&nbsp;object&nbsp;'pObject'&nbsp;in&nbsp;an&nbsp;axis<br>
+direction.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;vals&nbsp;[list]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;A&nbsp;list&nbsp;of&nbsp;float&nbsp;values&nbsp;for&nbsp;the&nbsp;relative&nbsp;move&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;positions.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pObject&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;polygonal&nbsp;object&nbsp;in&nbsp;the&nbsp;scene.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;axis&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;direction&nbsp;for&nbsp;the&nbsp;moved&nbsp;vertex&nbsp;for&nbsp;the&nbsp;value.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Valid&nbsp;values&nbsp;are&nbsp;x,y,z,n&nbsp;with&nbsp;'n'&nbsp;being&nbsp;normals.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;reverse&nbsp;[bool]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;If&nbsp;True,&nbsp;the&nbsp;values&nbsp;in&nbsp;the&nbsp;list&nbsp;'vals'&nbsp;will&nbsp;be&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reversed.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;seprAxisMv&nbsp;[bool]&nbsp;&nbsp;&nbsp;:&nbsp;If&nbsp;True,&nbsp;each&nbsp;of&nbsp;the&nbsp;move&nbsp;axis&nbsp;values&nbsp;will&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;moved&nbsp;separately&nbsp;instead&nbsp;of&nbsp;in&nbsp;one&nbsp;move&nbsp;command&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;apart&nbsp;from&nbsp;'n'&nbsp;which&nbsp;is&nbsp;always&nbsp;done&nbsp;separately.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Moves&nbsp;each&nbsp;of&nbsp;the&nbsp;vertexes&nbsp;of&nbsp;of&nbsp;'pObject'&nbsp;with&nbsp;relative&nbsp;values&nbsp;from<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'vals'&nbsp;in&nbsp;the&nbsp;direction(s)&nbsp;of&nbsp;'axis'.</tt></dd></dl>
+ <dl><dt><a name="-music_displace"><strong>music_displace</strong></a>(songInfo, terrainHeight, pObject, vtxDire<font color="#909090">='n'</font>, sSelect<font color="#909090">=False</font>, sSelectCurve<font color="#909090">=None</font>, sSelectMode<font color="#909090">=0</font>, sSelectRadius<font color="#909090">=5</font>, dips<font color="#909090">=False</font>, seprAxisMv<font color="#909090">=False</font>, reverse<font color="#909090">=False</font>, refresh<font color="#909090">=True</font>, queue<font color="#909090">=None</font>)</dt><dd><tt>Used&nbsp;to&nbsp;gather&nbsp;the&nbsp;song&nbsp;values&nbsp;from&nbsp;the&nbsp;songInfo&nbsp;'TerrainWaveFile'&nbsp;<br>
+class&nbsp;file&nbsp;and&nbsp;then&nbsp;use&nbsp;the&nbsp;values&nbsp;to&nbsp;move&nbsp;the&nbsp;'pObjects'&nbsp;vertices.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;songInfo&nbsp;[object]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;'TerrainWaveFile'&nbsp;class&nbsp;object&nbsp;from&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'terrainWave'&nbsp;file.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;terrainHeight&nbsp;[float]&nbsp;&nbsp;:&nbsp;The&nbsp;maximum&nbsp;height&nbsp;of&nbsp;the&nbsp;vertex&nbsp;movement&nbsp;and&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;value&nbsp;to&nbsp;which&nbsp;all&nbsp;other&nbsp;values&nbsp;will&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;range&nbsp;from.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pObject&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;poly&nbsp;object&nbsp;in&nbsp;the&nbsp;scene.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;vtxDire&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;vertex&nbsp;direction&nbsp;to&nbsp;which&nbsp;each&nbsp;point&nbsp;will&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;be&nbsp;moved&nbsp;in.&nbsp;This&nbsp;can&nbsp;be&nbsp;a&nbsp;single&nbsp;or&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;combination&nbsp;of&nbsp;x,y,z,and&nbsp;n&nbsp;with&nbsp;n&nbsp;being&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;normal.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sSelect&nbsp;[bool]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;If&nbsp;True,&nbsp;soft&nbsp;select&nbsp;is&nbsp;enabled&nbsp;with&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;following&nbsp;options:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sSelectCurve&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;soft&nbsp;select&nbsp;falloff&nbsp;curve&nbsp;used&nbsp;for&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;soft&nbsp;select.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sSelectMode&nbsp;[int]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;type&nbsp;of&nbsp;falloff&nbsp;mode&nbsp;will&nbsp;have.&nbsp;The&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;used&nbsp;relates&nbsp;to&nbsp;the&nbsp;location&nbsp;in&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;option&nbsp;menu&nbsp;in&nbsp;the&nbsp;soft&nbsp;select&nbsp;options.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sSelectRadius&nbsp;[float]&nbsp;:&nbsp;The&nbsp;radius&nbsp;of&nbsp;the&nbsp;soft&nbsp;select&nbsp;area&nbsp;from&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;which&nbsp;points&nbsp;it&nbsp;will&nbsp;select&nbsp;from&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;centre&nbsp;of&nbsp;the&nbsp;selection.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dips&nbsp;[bool]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;If&nbsp;True,&nbsp;negative&nbsp;values&nbsp;from&nbsp;the&nbsp;'songInfo'&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;be&nbsp;used.&nbsp;Else,&nbsp;all&nbsp;the&nbsp;values&nbsp;created&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;be&nbsp;positive.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;seprAxisMv&nbsp;[bool]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;If&nbsp;True,&nbsp;each&nbsp;of&nbsp;the&nbsp;axis&nbsp;moves&nbsp;ill&nbsp;be&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seperated&nbsp;and&nbsp;not&nbsp;merged&nbsp;into&nbsp;one&nbsp;move&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;command.&nbsp;This&nbsp;doesn't&nbsp;effect&nbsp;the&nbsp;'n'&nbsp;option&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;since&nbsp;this&nbsp;uses&nbsp;a&nbsp;different&nbsp;move&nbsp;command&nbsp;to&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;options&nbsp;x,&nbsp;y,&nbsp;and&nbsp;z.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;reverse&nbsp;[bool]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;If&nbsp;True,&nbsp;the&nbsp;song&nbsp;will&nbsp;be&nbsp;reverse,&nbsp;starting&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;the&nbsp;end&nbsp;rather&nbsp;than&nbsp;the&nbsp;beginning.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;'pObject's&nbsp;vertices&nbsp;will&nbsp;be&nbsp;moved&nbsp;in&nbsp;relation&nbsp;to&nbsp;the&nbsp;song's&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;amplitude,&nbsp;in&nbsp;relation&nbsp;to&nbsp;the&nbsp;'terrainHeight'.</tt></dd></dl>
+ <dl><dt><a name="-terrain_random_noise"><strong>terrain_random_noise</strong></a>()</dt><dd><tt>Creates&nbsp;a&nbsp;random&nbsp;noise&nbsp;texture&nbsp;which&nbsp;is&nbsp;most&nbsp;effective&nbsp;at&nbsp;creating&nbsp;and&nbsp;<br>
+blending&nbsp;layered&nbsp;textures.<br>
+&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Creates&nbsp;and&nbsp;returns&nbsp;the&nbsp;noise&nbsp;and&nbsp;place2dTexture&nbsp;node</tt></dd></dl>
+ <dl><dt><a name="-tex_types"><strong>tex_types</strong></a>(texType, nOfTexs<font color="#909090">=1</font>, randTexs<font color="#909090">=False</font>)</dt><dd><tt>Finds&nbsp;and&nbsp;collects&nbsp;the&nbsp;relevant&nbsp;texture&nbsp;file&nbsp;locations&nbsp;from&nbsp;the&nbsp;texture<br>
+directories.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;texType&nbsp;[tuple]&nbsp;:&nbsp;2&nbsp;tuple&nbsp;str&nbsp;of&nbsp;texture&nbsp;type&nbsp;folder&nbsp;followed&nbsp;by&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;category&nbsp;e.g.&nbsp;("cliff_textures",&nbsp;"arid")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nOfTexs&nbsp;[int]&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;number&nbsp;of&nbsp;textures&nbsp;to&nbsp;be&nbsp;used&nbsp;by&nbsp;the&nbsp;material.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;the&nbsp;number&nbsp;is&nbsp;greater&nbsp;then&nbsp;the&nbsp;number&nbsp;in&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;directory,&nbsp;then&nbsp;repeat&nbsp;textures&nbsp;will&nbsp;be&nbsp;used.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;randTexs&nbsp;[bool]&nbsp;:&nbsp;If&nbsp;True,&nbsp;textures&nbsp;from&nbsp;all&nbsp;the&nbsp;directory&nbsp;type&nbsp;will&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;used.&nbsp;For&nbsp;example,&nbsp;if&nbsp;the&nbsp;texType&nbsp;had&nbsp;its&nbsp;first&nbsp;entry<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;be&nbsp;"cliff_textures",&nbsp;then&nbsp;textures&nbsp;will&nbsp;be&nbsp;used&nbsp;from<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;all&nbsp;available&nbsp;files&nbsp;in&nbsp;that&nbsp;folder.<br>
+&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Stores&nbsp;and&nbsp;returns&nbsp;'nOfTexs'&nbsp;random&nbsp;texture&nbsp;locations&nbsp;of&nbsp;the&nbsp;specific&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;texture&nbsp;type.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>CLIFF_TEX_DIR</strong> = r'H:\Users\Jon\Documents\maya\scripts\mtg\textures\cliff_Textures'<br>
+<strong>COLOUR_SPACE_VALUES</strong> = {1: 1.0, 2: 2.2}<br>
+<strong>FILE_DIR</strong> = r'H:\Users\Jon\Documents\maya\scripts\mtg\mtgMain.py'<br>
+<strong>GRASS_TEX_DIR</strong> = r'H:\Users\Jon\Documents\maya\scripts\mtg\textures\grass_Textures'<br>
+<strong>MTG_DIRECTORY</strong> = r'H:\Users\Jon\Documents\maya\scripts\mtg'<br>
+<strong>TEX_DIRECTORY</strong> = r'H:\Users\Jon\Documents\maya\scripts\mtg\textures'</td></tr></table>
+</body></html>

@@ -1,0 +1,174 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module mtg.terrainWave</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="mtg.html"><font color="#ffffff">mtg</font></a>.terrainWave</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:///H:/users/jon/documents/maya/scripts/mtg/terrainwave.py">h:\users\jon\documents\maya\scripts\mtg\terrainwave.py</a></font></td></tr></table>
+    <p><tt>Module&nbsp;containing&nbsp;a&nbsp;class&nbsp;structure&nbsp;for&nbsp;creating&nbsp;terrain&nbsp;from&nbsp;music.<br>
+&nbsp;<br>
+The&nbsp;idea&nbsp;behind&nbsp;this&nbsp;modules&nbsp;is&nbsp;that&nbsp;it&nbsp;includes&nbsp;the&nbsp;class&nbsp;'<a href="#TerrainWaveFile">TerrainWaveFile</a>'&nbsp;<br>
+which&nbsp;inherits&nbsp;the&nbsp;'wave.<a href="wave.html#Wave_read">Wave_read</a>'&nbsp;class&nbsp;which&nbsp;is&nbsp;used&nbsp;to&nbsp;read&nbsp;wave&nbsp;or&nbsp;<br>
+.WAV&nbsp;files.&nbsp;I&nbsp;have&nbsp;added&nbsp;to&nbsp;this&nbsp;base&nbsp;class&nbsp;to&nbsp;incorporate&nbsp;some&nbsp;more&nbsp;useful&nbsp;<br>
+variables&nbsp;for&nbsp;my&nbsp;script.&nbsp;However,&nbsp;a&nbsp;lot&nbsp;of&nbsp;the&nbsp;values&nbsp;and&nbsp;functions&nbsp;were&nbsp;<br>
+not&nbsp;used&nbsp;in&nbsp;the&nbsp;final&nbsp;script.&nbsp;Only&nbsp;the&nbsp;'createheightvals'&nbsp;function&nbsp;is&nbsp;<br>
+really&nbsp;relevant,&nbsp;as&nbsp;this&nbsp;function&nbsp;creates&nbsp;the&nbsp;move&nbsp;distances&nbsp;for&nbsp;each&nbsp;<br>
+vertex&nbsp;of&nbsp;a&nbsp;poly&nbsp;object.<br>
+&nbsp;<br>
+For&nbsp;example,&nbsp;we&nbsp;can&nbsp;generate&nbsp;a&nbsp;list&nbsp;of&nbsp;move&nbsp;values&nbsp;by&nbsp;a)&nbsp;first&nbsp;creating&nbsp;a<br>
+VertexWaveFile&nbsp;object&nbsp;and&nbsp;b)&nbsp;using&nbsp;the&nbsp;objects&nbsp;function&nbsp;for&nbsp;<br>
+'createheightvals'&nbsp;to&nbsp;get&nbsp;the&nbsp;required&nbsp;values&nbsp;necessary&nbsp;to&nbsp;create&nbsp;terrain.&nbsp;<br>
+To&nbsp;test&nbsp;the&nbsp;code,&nbsp;however,&nbsp;you&nbsp;will&nbsp;need&nbsp;to&nbsp;supply&nbsp;a&nbsp;song&nbsp;path&nbsp;for&nbsp;variable&nbsp;<br>
+'song'<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;import&nbsp;maya.cmds&nbsp;as&nbsp;cmds<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;#change&nbsp;musicLocation&nbsp;to&nbsp;a&nbsp;song&nbsp;in&nbsp;your&nbsp;directory&nbsp;to&nbsp;test&nbsp;the&nbsp;functions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;song&nbsp;=&nbsp;'D:\\Users\\Jon\\workspace\\Terraign&nbsp;Generator\\01&nbsp;Window.wav'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;songInfo&nbsp;=&nbsp;<a href="#TerrainWaveFile">TerrainWaveFile</a>(song)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;pPlane&nbsp;=&nbsp;cmds.polyPlane(w=48,&nbsp;h=48,&nbsp;sx=24,&nbsp;sy=24)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;nOfVerts&nbsp;=&nbsp;cmds.polyEvaluate(v=True)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;nOfVerts<br>
+&nbsp;&nbsp;&nbsp;&nbsp;625<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;tHeightVals&nbsp;=&nbsp;songInfo.createheightvals(nOfVerts,&nbsp;16,&nbsp;False)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;len(tHeightVals)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;625<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;"%.0f"&nbsp;%&nbsp;max(tHeightVals)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'16'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;#&nbsp;clean&nbsp;up<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;cmds.delete(pPlane)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;To&nbsp;test/execute&nbsp;the&nbsp;examples&nbsp;in&nbsp;the&nbsp;module&nbsp;documentation&nbsp;make&nbsp;sure&nbsp;that&nbsp;<br>
+&nbsp;you&nbsp;have&nbsp;an&nbsp;empty&nbsp;scene&nbsp;first,&nbsp;then&nbsp;once&nbsp;you&nbsp;have&nbsp;imported&nbsp;the&nbsp;<br>
+&nbsp;terrainWave&nbsp;module:<br>
+&nbsp;import&nbsp;doctest<br>
+&nbsp;nfail,&nbsp;ntests&nbsp;=&nbsp;doctest.testmod(terrainWave)</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="datetime.html">datetime</a><br>
+<a href="itertools.html">itertools</a><br>
+</td><td width="25%" valign=top><a href="math.html">math</a><br>
+<a href="struct.html">struct</a><br>
+</td><td width="25%" valign=top><a href="wave.html">wave</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="wave.html#Wave_read">wave.Wave_read</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="mtg.terrainWave.html#TerrainWaveFile">TerrainWaveFile</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="TerrainWaveFile">class <strong>TerrainWaveFile</strong></a>(<a href="wave.html#Wave_read">wave.Wave_read</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Allows&nbsp;for&nbsp;the&nbsp;opening&nbsp;of&nbsp;a&nbsp;wave&nbsp;file&nbsp;with&nbsp;more&nbsp;built&nbsp;in&nbsp;variables&nbsp;and<br>
+can&nbsp;create&nbsp;height&nbsp;values&nbsp;for&nbsp;creating&nbsp;terrain.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;path&nbsp;[string]&nbsp;:&nbsp;This&nbsp;is&nbsp;the&nbsp;song&nbsp;path&nbsp;which&nbsp;will&nbsp;be&nbsp;read&nbsp;by&nbsp;the&nbsp;class<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_samplesize&nbsp;[int]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;sample&nbsp;size&nbsp;for&nbsp;the&nbsp;song.&nbsp;Usually&nbsp;16&nbsp;for<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stereo&nbsp;and&nbsp;8&nbsp;for&nbsp;mono<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_songlength&nbsp;[float]&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;length&nbsp;of&nbsp;the&nbsp;song&nbsp;in&nbsp;seconds<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_unpackstructval&nbsp;[str]&nbsp;:&nbsp;The&nbsp;number&nbsp;of&nbsp;binary&nbsp;values&nbsp;to&nbsp;unpack.&nbsp;This&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;used&nbsp;when&nbsp;the&nbsp;amplitude&nbsp;values&nbsp;are&nbsp;read&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;the&nbsp;song&nbsp;file<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_maxamplitude&nbsp;[int]&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;maximum&nbsp;amplitude&nbsp;from&nbsp;the&nbsp;signed&nbsp;bits<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;read&nbsp;from&nbsp;the&nbsp;song<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="TerrainWaveFile-__init__"><strong>__init__</strong></a>(self, path, q<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="TerrainWaveFile-averageAmps"><strong>averageAmps</strong></a>(self, amps, i)</dt></dl>
+
+<dl><dt><a name="TerrainWaveFile-convertAbsolute"><strong>convertAbsolute</strong></a>(self, amps, i)</dt></dl>
+
+<dl><dt><a name="TerrainWaveFile-createheightvals"><strong>createheightvals</strong></a>(self, nvtx, vheight, negative<font color="#909090">=False</font>)</dt><dd><tt>Samples&nbsp;the&nbsp;music&nbsp;and&nbsp;creates&nbsp;a&nbsp;list&nbsp;of&nbsp;height&nbsp;values.&nbsp;The&nbsp;song&nbsp;is<br>
+sampled&nbsp;for&nbsp;all&nbsp;of&nbsp;the&nbsp;frames&nbsp;divided&nbsp;by&nbsp;the&nbsp;'nvtx'.&nbsp;Then,&nbsp;all&nbsp;of&nbsp;<br>
+those&nbsp;values&nbsp;are&nbsp;averaged&nbsp;to&nbsp;get&nbsp;a&nbsp;final&nbsp;value&nbsp;for&nbsp;each&nbsp;vertex.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nvtx&nbsp;[int]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;number&nbsp;of&nbsp;vertices&nbsp;of&nbsp;the&nbsp;object&nbsp;or&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;height&nbsp;values&nbsp;to&nbsp;be&nbsp;created&nbsp;from&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;song&nbsp;amplitudes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;vheight&nbsp;[float]&nbsp;:&nbsp;The&nbsp;value&nbsp;from&nbsp;which&nbsp;all&nbsp;the&nbsp;height&nbsp;values&nbsp;will&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;be&nbsp;created.&nbsp;This&nbsp;will&nbsp;be&nbsp;the&nbsp;highest&nbsp;value&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and/or&nbsp;lowest&nbsp;if&nbsp;'negative'&nbsp;is&nbsp;True.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;negative&nbsp;[bool]&nbsp;:&nbsp;If&nbsp;True,&nbsp;the&nbsp;values&nbsp;returned&nbsp;will&nbsp;include&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;positive&nbsp;and&nbsp;negative&nbsp;values.&nbsp;If&nbsp;False,&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;values&nbsp;returned&nbsp;will&nbsp;be&nbsp;all&nbsp;positive.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;float&nbsp;values&nbsp;with&nbsp;length&nbsp;'nvtx',&nbsp;with&nbsp;maximum&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;minimum&nbsp;value&nbsp;of&nbsp;'vheight'.</tt></dd></dl>
+
+<dl><dt><a name="TerrainWaveFile-getmaxamplitude"><strong>getmaxamplitude</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;maximum&nbsp;amplitede&nbsp;for&nbsp;the&nbsp;song</tt></dd></dl>
+
+<dl><dt><a name="TerrainWaveFile-getsamplesize"><strong>getsamplesize</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;sample&nbsp;size&nbsp;for&nbsp;the&nbsp;song</tt></dd></dl>
+
+<dl><dt><a name="TerrainWaveFile-getsonglength"><strong>getsonglength</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;song&nbsp;length&nbsp;for&nbsp;the&nbsp;song&nbsp;in&nbsp;seconds</tt></dd></dl>
+
+<dl><dt><a name="TerrainWaveFile-getsonglengthtime"><strong>getsonglengthtime</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;song&nbsp;length&nbsp;in&nbsp;the&nbsp;form&nbsp;"h:mm:ss.msmsms"</tt></dd></dl>
+
+<dl><dt><a name="TerrainWaveFile-parsedata"><strong>parsedata</strong></a>(self, i)</dt></dl>
+
+<dl><dt><a name="TerrainWaveFile-relativeScale"><strong>relativeScale</strong></a>(self, amps, hRatio, i)</dt></dl>
+
+<hr>
+Methods inherited from <a href="wave.html#Wave_read">wave.Wave_read</a>:<br>
+<dl><dt><a name="TerrainWaveFile-__del__"><strong>__del__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="TerrainWaveFile-close"><strong>close</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="TerrainWaveFile-getcompname"><strong>getcompname</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="TerrainWaveFile-getcomptype"><strong>getcomptype</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="TerrainWaveFile-getfp"><strong>getfp</strong></a>(self)</dt><dd><tt>#&nbsp;User&nbsp;visible&nbsp;methods.</tt></dd></dl>
+
+<dl><dt><a name="TerrainWaveFile-getframerate"><strong>getframerate</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="TerrainWaveFile-getmark"><strong>getmark</strong></a>(self, id)</dt></dl>
+
+<dl><dt><a name="TerrainWaveFile-getmarkers"><strong>getmarkers</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="TerrainWaveFile-getnchannels"><strong>getnchannels</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="TerrainWaveFile-getnframes"><strong>getnframes</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="TerrainWaveFile-getparams"><strong>getparams</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="TerrainWaveFile-getsampwidth"><strong>getsampwidth</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="TerrainWaveFile-initfp"><strong>initfp</strong></a>(self, file)</dt></dl>
+
+<dl><dt><a name="TerrainWaveFile-readframes"><strong>readframes</strong></a>(self, nframes)</dt></dl>
+
+<dl><dt><a name="TerrainWaveFile-rewind"><strong>rewind</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="TerrainWaveFile-setpos"><strong>setpos</strong></a>(self, pos)</dt></dl>
+
+<dl><dt><a name="TerrainWaveFile-tell"><strong>tell</strong></a>(self)</dt></dl>
+
+</td></tr></table></td></tr></table>
+</body></html>

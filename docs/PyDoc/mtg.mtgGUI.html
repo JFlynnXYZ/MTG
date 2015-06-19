@@ -1,0 +1,456 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module mtg.mtgGUI</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="mtg.html"><font color="#ffffff">mtg</font></a>.mtgGUI</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:///H:/users/jon/documents/maya/scripts/mtg/mtggui.py">h:\users\jon\documents\maya\scripts\mtg\mtggui.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="mtg.mtgMain.html">mtg.mtgMain</a><br>
+<a href="mayaSnippet.mayaFuncs.html">mayaSnippet.mayaFuncs</a><br>
+<a href="maya.OpenMaya.html">maya.OpenMaya</a><br>
+<a href="Queue.html">Queue</a><br>
+</td><td width="25%" valign=top><a href="mtg.terrainWave.html">mtg.terrainWave</a><br>
+<a href="maya.cmds.html">maya.cmds</a><br>
+<a href="maya.mel.html">maya.mel</a><br>
+<a href="maya.utils.html">maya.utils</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+<a href="subprocess.html">subprocess</a><br>
+<a href="sys.html">sys</a><br>
+<a href="threading.html">threading</a><br>
+</td><td width="25%" valign=top><a href="time.html">time</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="mtg.mtgGUI.html#MTGGui">MTGGui</a>
+</font></dt><dt><font face="helvetica, arial"><a href="threading.html#Thread">threading.Thread</a>(<a href="threading.html#_Verbose">threading._Verbose</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="mtg.mtgGUI.html#GenerateTerrainThread">GenerateTerrainThread</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="GenerateTerrainThread">class <strong>GenerateTerrainThread</strong></a>(<a href="threading.html#Thread">threading.Thread</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mtg.mtgGUI.html#GenerateTerrainThread">GenerateTerrainThread</a></dd>
+<dd><a href="threading.html#Thread">threading.Thread</a></dd>
+<dd><a href="threading.html#_Verbose">threading._Verbose</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="GenerateTerrainThread-__init__"><strong>__init__</strong></a>(self, queue, songInfo, deformMag, pObjectNam, axis, sSelect, falloffCurve, falloffMode, falloffRadius, negativeValues, separateDeformDirection, reverseSong, refresh)</dt></dl>
+
+<dl><dt><a name="GenerateTerrainThread-run"><strong>run</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="threading.html#Thread">threading.Thread</a>:<br>
+<dl><dt><a name="GenerateTerrainThread-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="GenerateTerrainThread-getName"><strong>getName</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="GenerateTerrainThread-isAlive"><strong>isAlive</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="GenerateTerrainThread-isDaemon"><strong>isDaemon</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="GenerateTerrainThread-is_alive"><strong>is_alive</strong></a> = isAlive(self)</dt></dl>
+
+<dl><dt><a name="GenerateTerrainThread-join"><strong>join</strong></a>(self, timeout<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="GenerateTerrainThread-setDaemon"><strong>setDaemon</strong></a>(self, daemonic)</dt></dl>
+
+<dl><dt><a name="GenerateTerrainThread-setName"><strong>setName</strong></a>(self, name)</dt></dl>
+
+<dl><dt><a name="GenerateTerrainThread-start"><strong>start</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="threading.html#Thread">threading.Thread</a>:<br>
+<dl><dt><strong>daemon</strong></dt>
+</dl>
+<dl><dt><strong>ident</strong></dt>
+</dl>
+<dl><dt><strong>name</strong></dt>
+</dl>
+<hr>
+Data descriptors inherited from <a href="threading.html#_Verbose">threading._Verbose</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="MTGGui">class <strong>MTGGui</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Creates&nbsp;the&nbsp;Music&nbsp;Terrain&nbsp;Generator<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;winID&nbsp;[str]&nbsp;:&nbsp;The&nbsp;window&nbsp;name.&nbsp;This&nbsp;is&nbsp;to&nbsp;ensure&nbsp;that&nbsp;no&nbsp;two&nbsp;of&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;same&nbsp;window&nbsp;exist&nbsp;at&nbsp;the&nbsp;same&nbsp;time.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;win&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;actual&nbsp;name&nbsp;of&nbsp;the&nbsp;newly&nbsp;created<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wavFilter&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;string&nbsp;used&nbsp;to&nbsp;filter&nbsp;files&nbsp;in&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;open&nbsp;file&nbsp;dialog.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;currentSong&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;current&nbsp;song&nbsp;loaded&nbsp;into<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;program.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;currentSongDir&nbsp;[None][str]&nbsp;:&nbsp;The&nbsp;current&nbsp;song's&nbsp;directory&nbsp;on&nbsp;the&nbsp;disc<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;drive.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;songInfo&nbsp;[None][object]&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;song&nbsp;info&nbsp;class&nbsp;object&nbsp;from<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;terrainWave.TerrainWaveFile.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;fileTextures&nbsp;[dict]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Stores&nbsp;all&nbsp;the&nbsp;files&nbsp;from&nbsp;the&nbsp;file<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;directories.&nbsp;The&nbsp;string&nbsp;name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'cliffTextures'&nbsp;and&nbsp;'grassTextures'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;are&nbsp;the&nbsp;only&nbsp;values&nbsp;currently&nbsp;used.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cliffTypeFolders&nbsp;[list]&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;list&nbsp;of&nbsp;all&nbsp;the&nbsp;folders&nbsp;in&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;main.CLIFF_TEX&nbsp;folder<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.<strong>newFileJob</strong>&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;script&nbsp;job&nbsp;so&nbsp;to&nbsp;close&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;script&nbsp;when&nbsp;a&nbsp;new&nbsp;file&nbsp;is&nbsp;created&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;remove&nbsp;the&nbsp;chance&nbsp;of&nbsp;errors<br>
+&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;polygonObjTFGrp&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;polygon&nbsp;object&nbsp;text&nbsp;field<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;group<br>
+&nbsp;&nbsp;&nbsp;&nbsp;songText&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;currently&nbsp;loaded&nbsp;song&nbsp;text<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label<br>
+&nbsp;&nbsp;&nbsp;&nbsp;musicLoadGrp&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;Music&nbsp;Location&nbsp;text&nbsp;field<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;button&nbsp;group<br>
+&nbsp;&nbsp;&nbsp;&nbsp;loadMusicB&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;load&nbsp;music&nbsp;button<br>
+&nbsp;&nbsp;&nbsp;&nbsp;playMusicB&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;play&nbsp;music&nbsp;button<br>
+&nbsp;&nbsp;&nbsp;&nbsp;reloadMusicB&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;reload&nbsp;music&nbsp;button<br>
+&nbsp;&nbsp;&nbsp;&nbsp;clearMusicB&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;clear&nbsp;music&nbsp;button<br>
+&nbsp;&nbsp;&nbsp;&nbsp;soundScrb&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;Sound&nbsp;Scrubber&nbsp;preview<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;control<br>
+&nbsp;&nbsp;&nbsp;&nbsp;soundCtrl&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Then&nbsp;name&nbsp;of&nbsp;the&nbsp;sound&nbsp;control&nbsp;to&nbsp;change&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sound&nbsp;Scrubber<br>
+&nbsp;&nbsp;&nbsp;&nbsp;deformMagFSLGrp&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;Deform&nbsp;Magnitude&nbsp;Float<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slider&nbsp;group<br>
+&nbsp;&nbsp;&nbsp;&nbsp;deformDirCBGrp&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;Deform&nbsp;Direction&nbsp;Check&nbsp;Box<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;group<br>
+&nbsp;&nbsp;&nbsp;&nbsp;otherOptCBGrp&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;Other&nbsp;Options&nbsp;Check&nbsp;Box<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;group<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sSelectCB&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;Soft&nbsp;Select&nbsp;check&nbsp;box<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sSelectReset&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;Soft&nbsp;Select&nbsp;reset&nbsp;button<br>
+&nbsp;&nbsp;&nbsp;&nbsp;falloffModeOMGrp&nbsp;[str]&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;soft&nbsp;select&nbsp;Falloff&nbsp;mode<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Option&nbsp;Menu&nbsp;group<br>
+&nbsp;&nbsp;&nbsp;&nbsp;falloffRadFSlGrp&nbsp;[str]&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;soft&nbsp;select&nbsp;Falloff&nbsp;radius<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float&nbsp;slider&nbsp;group<br>
+&nbsp;&nbsp;&nbsp;&nbsp;falloffCurveRow&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;soft&nbsp;select&nbsp;falloff&nbsp;curve<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;row<br>
+&nbsp;&nbsp;&nbsp;&nbsp;falloffCurveCtrl&nbsp;[str]&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;soft&nbsp;select&nbsp;falloff&nbsp;curve<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;graph&nbsp;control<br>
+&nbsp;&nbsp;&nbsp;&nbsp;interpolationOMGrp&nbsp;[str]&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;curve&nbsp;interpolation&nbsp;option<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;menu&nbsp;group<br>
+&nbsp;&nbsp;&nbsp;&nbsp;curvePresetsRow&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;row&nbsp;containing&nbsp;all&nbsp;the&nbsp;curve<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;preset&nbsp;curves<br>
+&nbsp;&nbsp;&nbsp;&nbsp;generateTerrainB&nbsp;[str]&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;Generate&nbsp;Terrain&nbsp;&nbsp;Button<br>
+&nbsp;&nbsp;&nbsp;&nbsp;randomCTexRow&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;random&nbsp;cliff&nbsp;texture&nbsp;row<br>
+&nbsp;&nbsp;&nbsp;&nbsp;randomCTexCB&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;random&nbsp;cliff&nbsp;texture&nbsp;check<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;button<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cliffTypesOMGrp&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;cliff&nbsp;types&nbsp;option&nbsp;menu<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;group<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nOfCliffTexIF&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;cliff&nbsp;texture&nbsp;integer&nbsp;field<br>
+&nbsp;&nbsp;&nbsp;&nbsp;texRepeatU&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;texture&nbsp;repeat&nbsp;U&nbsp;float<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slider<br>
+&nbsp;&nbsp;&nbsp;&nbsp;texRepeatV&nbsp;&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;texture&nbsp;repeat&nbsp;V&nbsp;float<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slider<br>
+&nbsp;&nbsp;&nbsp;&nbsp;texNoiseU&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;texture&nbsp;noise&nbsp;U&nbsp;float<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slider<br>
+&nbsp;&nbsp;&nbsp;&nbsp;texNoiseV&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;texture&nbsp;noise&nbsp;V&nbsp;float<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slider<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bDepth&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;bump&nbsp;depth&nbsp;float&nbsp;slider<br>
+&nbsp;&nbsp;&nbsp;&nbsp;texPosFrame&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;texture&nbsp;positioning&nbsp;frame<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ramp&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;current&nbsp;ramp&nbsp;preview&nbsp;name&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;interface<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rampPreviewImg&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;ramp&nbsp;preview&nbsp;swatch&nbsp;display<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rampType&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;ramp&nbsp;type&nbsp;option&nbsp;menu&nbsp;group<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rampInterpol&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;ramp&nbsp;interpolation&nbsp;option<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;menu&nbsp;group<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rampCliffTex&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;ramp&nbsp;cliff&nbsp;texture&nbsp;colour<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;port<br>
+&nbsp;&nbsp;&nbsp;&nbsp;resetButton&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;ramp&nbsp;reset&nbsp;button<br>
+&nbsp;&nbsp;&nbsp;&nbsp;entryTypeOMGrp&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;ramp&nbsp;entry&nbsp;type&nbsp;option&nbsp;menu<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cliffEntry&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;cliff&nbsp;entry&nbsp;menu&nbsp;item&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;entryTypeOMGrp<br>
+&nbsp;&nbsp;&nbsp;&nbsp;snowEntry&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;snow&nbsp;entry&nbsp;menu&nbsp;item&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;entryTypeOMGrp<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grassEntry&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;grass&nbsp;entry&nbsp;menu&nbsp;item&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;entryTypeOMGrp<br>
+&nbsp;&nbsp;&nbsp;&nbsp;createEntryButton&nbsp;[str]&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;create&nbsp;entry&nbsp;button&nbsp;for&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ramp&nbsp;preview<br>
+&nbsp;&nbsp;&nbsp;&nbsp;uWaveSl&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;ramp&nbsp;U&nbsp;Wave&nbsp;float&nbsp;slider<br>
+&nbsp;&nbsp;&nbsp;&nbsp;vWaveSl&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;ramp&nbsp;V&nbsp;Wave&nbsp;float&nbsp;slider<br>
+&nbsp;&nbsp;&nbsp;&nbsp;noiseSl&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;ramp&nbsp;noise&nbsp;float&nbsp;slider<br>
+&nbsp;&nbsp;&nbsp;&nbsp;freqSl&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;ramp&nbsp;noise&nbsp;frequency&nbsp;slider<br>
+&nbsp;&nbsp;&nbsp;&nbsp;generateTerrainB&nbsp;[str]&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;generate&nbsp;terrain&nbsp;button<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="MTGGui-__init__"><strong>__init__</strong></a>(self, winID<font color="#909090">='mtgScriptWindow'</font>)</dt></dl>
+
+<dl><dt><a name="MTGGui-change_falloff_curve_prest"><strong>change_falloff_curve_prest</strong></a>(self, preset<font color="#909090">=None</font>, values<font color="#909090">=None</font>)</dt><dd><tt>Changes&nbsp;the&nbsp;falloff&nbsp;graph&nbsp;curve&nbsp;to&nbsp;one&nbsp;of&nbsp;the&nbsp;selected&nbsp;presets&nbsp;or<br>
+to&nbsp;the&nbsp;values&nbsp;passed&nbsp;to&nbsp;the&nbsp;function.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;preset&nbsp;[str][int][None]&nbsp;:&nbsp;Can&nbsp;either&nbsp;be&nbsp;the&nbsp;name&nbsp;of&nbsp;a&nbsp;preset&nbsp;or&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;the&nbsp;preset&nbsp;as&nbsp;the&nbsp;key&nbsp;for&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mf.SSELECT_CURVES.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;values&nbsp;[str][None]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Can&nbsp;be&nbsp;used&nbsp;instead&nbsp;of&nbsp;preset&nbsp;to&nbsp;set&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;of&nbsp;the&nbsp;curve.<br>
+&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Sets&nbsp;the&nbsp;value&nbsp;of&nbsp;the&nbsp;falloff&nbsp;curve&nbsp;graph&nbsp;by&nbsp;setting&nbsp;the&nbsp;value<br>
+&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;the&nbsp;option&nbsp;variable&nbsp;'softSelectCurve'.</tt></dd></dl>
+
+<dl><dt><a name="MTGGui-change_falloff_key_interp"><strong>change_falloff_key_interp</strong></a>(self, *args)</dt><dd><tt>Changes&nbsp;the&nbsp;currently&nbsp;selected&nbsp;key&nbsp;of&nbsp;the&nbsp;soft&nbsp;select&nbsp;curve&nbsp;graph&nbsp;to<br>
+the&nbsp;value&nbsp;in&nbsp;the&nbsp;interpolationOMGrp.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;args&nbsp;[tuple]&nbsp;:&nbsp;Ignore&nbsp;value.&nbsp;The&nbsp;value&nbsp;is&nbsp;returned&nbsp;by&nbsp;the&nbsp;control<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;is&nbsp;unused.<br>
+&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Sets&nbsp;the&nbsp;currently&nbsp;selected&nbsp;point&nbsp;on&nbsp;the&nbsp;soft&nbsp;select&nbsp;curve&nbsp;to&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;interpolation&nbsp;value&nbsp;in&nbsp;the&nbsp;interpolationOMGrp.</tt></dd></dl>
+
+<dl><dt><a name="MTGGui-check_other_tex_states"><strong>check_other_tex_states</strong></a>(self, *args)</dt></dl>
+
+<dl><dt><a name="MTGGui-clear_ramp"><strong>clear_ramp</strong></a>(self, ramp)</dt></dl>
+
+<dl><dt><a name="MTGGui-clear_song"><strong>clear_song</strong></a>(self, *args)</dt><dd><tt>Clears&nbsp;the&nbsp;currently&nbsp;loaded&nbsp;song&nbsp;in&nbsp;the&nbsp;program.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;args&nbsp;[tuple]&nbsp;:&nbsp;Ignore&nbsp;value.&nbsp;The&nbsp;value&nbsp;is&nbsp;returned&nbsp;by&nbsp;the&nbsp;button<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;is&nbsp;unused.<br>
+&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Clears&nbsp;the&nbsp;song&nbsp;from&nbsp;the&nbsp;program&nbsp;aswell&nbsp;as&nbsp;the&nbsp;songInfo&nbsp;stored&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;program.&nbsp;It&nbsp;also&nbsp;disables&nbsp;the&nbsp;related&nbsp;widgets&nbsp;with&nbsp;a&nbsp;loaded<br>
+&nbsp;&nbsp;&nbsp;&nbsp;song.</tt></dd></dl>
+
+<dl><dt><a name="MTGGui-create_entry"><strong>create_entry</strong></a>(self, entryType, ramp, *args)</dt></dl>
+
+<dl><dt><a name="MTGGui-create_interface"><strong>create_interface</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="MTGGui-cycle_preview_img"><strong>cycle_preview_img</strong></a>(self, texVar, fNode, *args)</dt></dl>
+
+<dl><dt><a name="MTGGui-default_falloff_curve"><strong>default_falloff_curve</strong></a>(self)</dt><dd><tt>Sets&nbsp;up&nbsp;the&nbsp;option&nbsp;variable&nbsp;in&nbsp;Maya&nbsp;for&nbsp;the&nbsp;interfaces&nbsp;soft&nbsp;select<br>
+curve&nbsp;graph.<br>
+&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Either&nbsp;stores&nbsp;the&nbsp;current&nbsp;graph&nbsp;values&nbsp;of&nbsp;the&nbsp;default&nbsp;falloff&nbsp;curve<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;soft&nbsp;select&nbsp;or&nbsp;re-uses&nbsp;the&nbsp;values&nbsp;already&nbsp;stored&nbsp;in&nbsp;the&nbsp;option<br>
+&nbsp;&nbsp;&nbsp;&nbsp;variable.</tt></dd></dl>
+
+<dl><dt><a name="MTGGui-enable_disable_widgets"><strong>enable_disable_widgets</strong></a>(self, widgets, enable<font color="#909090">=True</font>)</dt><dd><tt>This&nbsp;command&nbsp;is&nbsp;used&nbsp;to&nbsp;disable&nbsp;the&nbsp;widgets/controls&nbsp;passed&nbsp;to&nbsp;the<br>
+function.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;widgets&nbsp;[str][list]&nbsp;:&nbsp;The&nbsp;widget(s)&nbsp;that&nbsp;will&nbsp;be&nbsp;either&nbsp;enabled&nbsp;or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;disabled&nbsp;dependent&nbsp;on&nbsp;the&nbsp;'enable'&nbsp;parameter.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;enable&nbsp;[bool]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;If&nbsp;True,&nbsp;the&nbsp;widgets&nbsp;will&nbsp;be&nbsp;enabled,&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;disabled<br>
+&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;listed&nbsp;widgets/controls&nbsp;will&nbsp;be&nbsp;disabled&nbsp;or&nbsp;enabled.</tt></dd></dl>
+
+<dl><dt><a name="MTGGui-end"><strong>end</strong></a>(self)</dt><dd><tt>Used&nbsp;to,&nbsp;when&nbsp;a&nbsp;new&nbsp;file&nbsp;is&nbsp;created,&nbsp;to&nbsp;close&nbsp;the&nbsp;window&nbsp;and&nbsp;end<br>
+the&nbsp;scriptJob&nbsp;which&nbsp;causes&nbsp;it&nbsp;to&nbsp;do&nbsp;this.<br>
+&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Closes&nbsp;the&nbsp;window&nbsp;on&nbsp;a&nbsp;new&nbsp;file&nbsp;creation&nbsp;and&nbsp;kills&nbsp;the&nbsp;script&nbsp;job<br>
+&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;allows&nbsp;it.</tt></dd></dl>
+
+<dl><dt><a name="MTGGui-error_message"><strong>error_message</strong></a>(self, errNo<font color="#909090">=None</font>, value<font color="#909090">=''</font>)</dt><dd><tt>Used&nbsp;to&nbsp;create&nbsp;error&nbsp;messages&nbsp;or&nbsp;notifications&nbsp;to&nbsp;the&nbsp;user&nbsp;about&nbsp;a<br>
+specific&nbsp;error.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;errNo&nbsp;[None][int]&nbsp;:&nbsp;The&nbsp;number&nbsp;pertaining&nbsp;to&nbsp;the&nbsp;error&nbsp;message.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;value&nbsp;pertaining&nbsp;to&nbsp;the&nbsp;error&nbsp;message.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Usually&nbsp;the&nbsp;cause&nbsp;of&nbsp;the&nbsp;error.<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Creates&nbsp;a&nbsp;error&nbsp;message&nbsp;dialog&nbsp;for&nbsp;the&nbsp;user&nbsp;to&nbsp;be&nbsp;notified&nbsp;of&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;problem&nbsp;with&nbsp;the&nbsp;program.</tt></dd></dl>
+
+<dl><dt><a name="MTGGui-falloff_curve_change_key"><strong>falloff_curve_change_key</strong></a>(self, *args)</dt><dd><tt>Updates&nbsp;the&nbsp;interpolation&nbsp;of&nbsp;the&nbsp;selected&nbsp;soft&nbsp;select&nbsp;curve&nbsp;graph&nbsp;in<br>
+the&nbsp;interpolation&nbsp;option&nbsp;menu&nbsp;to&nbsp;match&nbsp;the&nbsp;graph&nbsp;curve..<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;args&nbsp;[tuple]&nbsp;:&nbsp;Ignore&nbsp;value.&nbsp;The&nbsp;value&nbsp;is&nbsp;returned&nbsp;by&nbsp;the&nbsp;control<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;is&nbsp;unused.<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Changes&nbsp;the&nbsp;interpolation&nbsp;option&nbsp;menu&nbsp;to&nbsp;the&nbsp;one&nbsp;set&nbsp;on&nbsp;the&nbsp;curve</tt></dd></dl>
+
+<dl><dt><a name="MTGGui-generate_terrain"><strong>generate_terrain</strong></a>(self, *args)</dt></dl>
+
+<dl><dt><a name="MTGGui-generate_texture"><strong>generate_texture</strong></a>(self, *args)</dt></dl>
+
+<dl><dt><a name="MTGGui-get_tex_ramp_info"><strong>get_tex_ramp_info</strong></a>(self, ramp)</dt></dl>
+
+<dl><dt><a name="MTGGui-load_song"><strong>load_song</strong></a>(self, *args)</dt><dd><tt>Loads&nbsp;the&nbsp;song&nbsp;in&nbsp;the&nbsp;musicLoadGrp&nbsp;field&nbsp;and&nbsp;loads&nbsp;it&nbsp;into&nbsp;maya&nbsp;and<br>
+creates&nbsp;a&nbsp;TerrainWaveFile&nbsp;with&nbsp;it.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;args&nbsp;[tuple]&nbsp;:&nbsp;Ignore&nbsp;value.&nbsp;The&nbsp;value&nbsp;is&nbsp;returned&nbsp;by&nbsp;the&nbsp;button<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;is&nbsp;unused.<br>
+&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Loads&nbsp;the&nbsp;song&nbsp;into&nbsp;the&nbsp;program&nbsp;and&nbsp;stores&nbsp;the&nbsp;information&nbsp;into<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;self.<strong>songInfo</strong>&nbsp;variable.&nbsp;It&nbsp;also&nbsp;activates&nbsp;the&nbsp;buttons&nbsp;related<br>
+&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;the&nbsp;newly&nbsp;loaded&nbsp;song.</tt></dd></dl>
+
+<dl><dt><a name="MTGGui-music_browse"><strong>music_browse</strong></a>(self, *args)</dt><dd><tt>Creates&nbsp;a&nbsp;open&nbsp;file&nbsp;dialog&nbsp;window&nbsp;to&nbsp;find&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;song<br>
+file&nbsp;on&nbsp;the&nbsp;disc&nbsp;drive.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;args&nbsp;[tuple]&nbsp;:&nbsp;Ignore&nbsp;value.&nbsp;The&nbsp;value&nbsp;is&nbsp;returned&nbsp;by&nbsp;the&nbsp;button<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;is&nbsp;unused.<br>
+&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Finds&nbsp;a&nbsp;wave&nbsp;file&nbsp;on&nbsp;the&nbsp;disc&nbsp;drive&nbsp;and&nbsp;sets&nbsp;the&nbsp;text&nbsp;field&nbsp;to&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;found&nbsp;files&nbsp;location.</tt></dd></dl>
+
+<dl><dt><a name="MTGGui-play_song"><strong>play_song</strong></a>(self, *args)</dt><dd><tt>Attempts&nbsp;to&nbsp;open&nbsp;the&nbsp;chosen&nbsp;song&nbsp;file&nbsp;using&nbsp;the&nbsp;systems&nbsp;default<br>
+music&nbsp;player.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;args&nbsp;[tuple]&nbsp;:&nbsp;Ignore&nbsp;value.&nbsp;The&nbsp;value&nbsp;is&nbsp;returned&nbsp;by&nbsp;the&nbsp;button<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;is&nbsp;unused.<br>
+&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;success,&nbsp;will&nbsp;open&nbsp;the&nbsp;file&nbsp;and&nbsp;play&nbsp;the&nbsp;song&nbsp;in&nbsp;the&nbsp;default<br>
+&nbsp;&nbsp;&nbsp;&nbsp;music&nbsp;player.</tt></dd></dl>
+
+<dl><dt><a name="MTGGui-reload_song"><strong>reload_song</strong></a>(self, *args)</dt><dd><tt>Reloads&nbsp;the&nbsp;currently&nbsp;loaded&nbsp;song.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;args&nbsp;[tuple]&nbsp;:&nbsp;Ignore&nbsp;value.&nbsp;The&nbsp;value&nbsp;is&nbsp;returned&nbsp;by&nbsp;the&nbsp;button<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;is&nbsp;unused.<br>
+&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Reloads&nbsp;the&nbsp;song&nbsp;into&nbsp;the&nbsp;program&nbsp;and&nbsp;stores&nbsp;the&nbsp;information&nbsp;into<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;self.<strong>songInfo</strong>&nbsp;variable.</tt></dd></dl>
+
+<dl><dt><a name="MTGGui-replace_ramp_entry_type"><strong>replace_ramp_entry_type</strong></a>(self, ramp, remove)</dt></dl>
+
+<dl><dt><a name="MTGGui-reset_falloff_curve"><strong>reset_falloff_curve</strong></a>(self)</dt><dd><tt>Used&nbsp;to&nbsp;reset&nbsp;the&nbsp;soft&nbsp;select&nbsp;falloff&nbsp;curve&nbsp;curve&nbsp;to&nbsp;the&nbsp;default<br>
+variable&nbsp;in&nbsp;the&nbsp;option&nbsp;variable.<br>
+&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Sets&nbsp;the&nbsp;current&nbsp;falloff&nbsp;curve&nbsp;to&nbsp;the&nbsp;graph&nbsp;values&nbsp;in&nbsp;the&nbsp;soft<br>
+&nbsp;&nbsp;&nbsp;&nbsp;select&nbsp;option&nbsp;variable.</tt></dd></dl>
+
+<dl><dt><a name="MTGGui-reset_ramp"><strong>reset_ramp</strong></a>(self, ramp, snowCtrl, grassCtrl, *args)</dt></dl>
+
+<dl><dt><a name="MTGGui-reset_ramp_colours"><strong>reset_ramp_colours</strong></a>(self, ramp)</dt></dl>
+
+<dl><dt><a name="MTGGui-reset_soft_select_options"><strong>reset_soft_select_options</strong></a>(self, *args)</dt></dl>
+
+<dl><dt><a name="MTGGui-select_obj"><strong>select_obj</strong></a>(self)</dt><dd><tt>Used&nbsp;for&nbsp;the&nbsp;polygonObjTFGrp.&nbsp;Stores&nbsp;the&nbsp;first&nbsp;currently&nbsp;selected<br>
+object&nbsp;in&nbsp;the&nbsp;Maya&nbsp;scene&nbsp;if&nbsp;it&nbsp;is&nbsp;a&nbsp;polygon&nbsp;object.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;An&nbsp;object&nbsp;selection&nbsp;in&nbsp;Maya.<br>
+&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Either,&nbsp;changes&nbsp;the&nbsp;field&nbsp;to&nbsp;be&nbsp;the&nbsp;name&nbsp;of&nbsp;a&nbsp;selected&nbsp;poly&nbsp;object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;clears&nbsp;the&nbsp;field.</tt></dd></dl>
+
+<dl><dt><a name="MTGGui-set_preview"><strong>set_preview</strong></a>(self, num, texVar, fNode)</dt></dl>
+
+<dl><dt><a name="MTGGui-setup_falloff_curve"><strong>setup_falloff_curve</strong></a>(self, values, stringValues<font color="#909090">=('softSelectCurve', 'softSelectCurveOptionVar')</font>)</dt><dd><tt>Sets&nbsp;up&nbsp;the&nbsp;falloff&nbsp;curve&nbsp;option&nbsp;variables&nbsp;with&nbsp;values.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;values&nbsp;[list]&nbsp;:&nbsp;Values&nbsp;used&nbsp;to&nbsp;set&nbsp;the&nbsp;option&nbsp;variables<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;storing&nbsp;the&nbsp;soft&nbsp;select&nbsp;falloff&nbsp;curves<br>
+&nbsp;&nbsp;&nbsp;&nbsp;stringValues&nbsp;[str][tuple]&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;option&nbsp;variables&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;which&nbsp;the&nbsp;values&nbsp;will&nbsp;change&nbsp;for.<br>
+&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Stores&nbsp;the&nbsp;values&nbsp;in&nbsp;the&nbsp;option&nbsp;variables&nbsp;passed&nbsp;in&nbsp;'stringValues'</tt></dd></dl>
+
+<dl><dt><a name="MTGGui-setup_preview_file"><strong>setup_preview_file</strong></a>(self, name)</dt></dl>
+
+<dl><dt><a name="MTGGui-setup_texture_pos_ramp"><strong>setup_texture_pos_ramp</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="MTGGui-toggle_randomtex"><strong>toggle_randomtex</strong></a>(self, texVar, imgDir, field, fNode, *args)</dt></dl>
+
+<dl><dt><a name="MTGGui-toggle_sselect_widgets"><strong>toggle_sselect_widgets</strong></a>(self, state, *args)</dt><dd><tt>Used&nbsp;to&nbsp;change&nbsp;the&nbsp;enable&nbsp;state&nbsp;of&nbsp;the&nbsp;soft&nbsp;select&nbsp;widgets/controls.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;state&nbsp;[bool]&nbsp;:&nbsp;The&nbsp;state&nbsp;for&nbsp;which&nbsp;the&nbsp;widgets&nbsp;will&nbsp;be&nbsp;turned&nbsp;to.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;args&nbsp;[tuple]&nbsp;:&nbsp;Ignore&nbsp;value.&nbsp;The&nbsp;value&nbsp;is&nbsp;returned&nbsp;by&nbsp;the&nbsp;button<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;is&nbsp;unused.<br>
+&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;soft&nbsp;select&nbsp;widgets/controls&nbsp;will&nbsp;be&nbsp;enabled&nbsp;or&nbsp;disabled.</tt></dd></dl>
+
+<dl><dt><a name="MTGGui-toggle_visble_grasstex"><strong>toggle_visble_grasstex</strong></a>(self, state, *args)</dt></dl>
+
+<dl><dt><a name="MTGGui-update_file_node_swatch"><strong>update_file_node_swatch</strong></a>(self, fNode)</dt></dl>
+
+<dl><dt><a name="MTGGui-update_preview"><strong>update_preview</strong></a>(self, texVar, imgDir, fNode, all<font color="#909090">=False</font>, *args)</dt></dl>
+
+<dl><dt><a name="MTGGui-visbile_invisible_widgets"><strong>visbile_invisible_widgets</strong></a>(self, widgets, visible<font color="#909090">=True</font>)</dt><dd><tt>This&nbsp;command&nbsp;is&nbsp;used&nbsp;to&nbsp;change&nbsp;the&nbsp;visibility&nbsp;of&nbsp;the<br>
+widgets/controls&nbsp;passed&nbsp;to&nbsp;the&nbsp;function.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;widgets&nbsp;[str][list]&nbsp;:&nbsp;The&nbsp;widget(s)&nbsp;that&nbsp;will&nbsp;be&nbsp;either&nbsp;enabled&nbsp;or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;disabled&nbsp;dependent&nbsp;on&nbsp;the&nbsp;'enable'&nbsp;parameter.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;visible&nbsp;[bool]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;If&nbsp;True,&nbsp;the&nbsp;widgets&nbsp;will&nbsp;be&nbsp;visible,&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;invisible<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;listed&nbsp;widgets/controls&nbsp;will&nbsp;be&nbsp;visible&nbsp;or&nbsp;invisible.</tt></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-open_file"><strong>open_file</strong></a>(fileDir)</dt><dd><tt>Used&nbsp;to&nbsp;open&nbsp;a&nbsp;file&nbsp;with&nbsp;the&nbsp;default&nbsp;program&nbsp;on&nbsp;Windows32&nbsp;OS&nbsp;system<br>
+&nbsp;<br>
+Parameter:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;fileDir&nbsp;[str]&nbsp;:&nbsp;The&nbsp;directory&nbsp;of&nbsp;the&nbsp;file&nbsp;to&nbsp;be&nbsp;opened.<br>
+&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Opens&nbsp;the&nbsp;file&nbsp;with&nbsp;the&nbsp;default&nbsp;program&nbsp;on&nbsp;the&nbsp;system.</tt></dd></dl>
+ <dl><dt><a name="-run"><strong>run</strong></a>()</dt></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>CLIFF_COLOUR</strong> = (0.41, 0.311468, 0.26937)<br>
+<strong>GRASS_COLOUR</strong> = (0.15478, 0.494, 0.138814)<br>
+<strong>SNOW_COLOUR</strong> = (1, 1, 1)</td></tr></table>
+</body></html>

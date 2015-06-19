@@ -1,0 +1,263 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module mayaSnippet.mayaFuncs</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="mayaSnippet.html"><font color="#ffffff">mayaSnippet</font></a>.mayaFuncs</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:///H:/users/jon/documents/maya/scripts/mayasnippet/mayafuncs.py">h:\users\jon\documents\maya\scripts\mayasnippet\mayafuncs.py</a></font></td></tr></table>
+    <p><tt>Module&nbsp;of&nbsp;procedures&nbsp;and&nbsp;variables&nbsp;for&nbsp;general&nbsp;Maya&nbsp;usage.&nbsp;<br>
+&nbsp;<br>
+The&nbsp;idea&nbsp;behind&nbsp;this&nbsp;module&nbsp;is&nbsp;to&nbsp;make&nbsp;a&nbsp;lot&nbsp;of&nbsp;complex&nbsp;and&nbsp;commonly&nbsp;used&nbsp;<br>
+procedures&nbsp;in&nbsp;one&nbsp;file&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;any&nbsp;of&nbsp;my&nbsp;own&nbsp;scripting&nbsp;projects.<br>
+&nbsp;<br>
+For&nbsp;example,&nbsp;a&nbsp;very&nbsp;useful&nbsp;procedure&nbsp;is&nbsp;'soft_selection'&nbsp;which&nbsp;returns&nbsp;the<br>
+names&nbsp;of&nbsp;the&nbsp;vertices&nbsp;selected&nbsp;with&nbsp;soft&nbsp;select.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;import&nbsp;maya.cmds&nbsp;as&nbsp;cmds<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;pPlane&nbsp;=&nbsp;cmds.polyPlane(w=48,&nbsp;h=48,&nbsp;sx=24,&nbsp;sy=24)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;cmds.softSelect(sse=1,&nbsp;ssr=True,&nbsp;ssd=2.5)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;cmds.select('%s.vtx[240]'&nbsp;%&nbsp;pPlane[0])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;verts&nbsp;=&nbsp;<a href="#-soft_selection">soft_selection</a>()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;verts[:3]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[u'|pPlane1.vtx[215]',&nbsp;u'|pPlane1.vtx[239]',&nbsp;u'|pPlane1.vtx[240]']<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;#&nbsp;clean&nbsp;up<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;cmds.delete(pPlane)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;To&nbsp;test/execute&nbsp;the&nbsp;examples&nbsp;in&nbsp;the&nbsp;module&nbsp;documentation&nbsp;make&nbsp;sure&nbsp;that&nbsp;<br>
+&nbsp;you&nbsp;have&nbsp;an&nbsp;empty&nbsp;scene&nbsp;first,&nbsp;then&nbsp;once&nbsp;you&nbsp;have&nbsp;imported&nbsp;the&nbsp;<br>
+&nbsp;mayaFuncs&nbsp;module:<br>
+&nbsp;import&nbsp;doctest<br>
+&nbsp;nfail,&nbsp;ntests&nbsp;=&nbsp;doctest.testmod(mayaFuncs)</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="maya.cmds.html">maya.cmds</a><br>
+<a href="maya.mel.html">maya.mel</a><br>
+</td><td width="25%" valign=top><a href="maya.OpenMaya.html">maya.OpenMaya</a><br>
+<a href="random.html">random</a><br>
+</td><td width="25%" valign=top><a href="time.html">time</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-apply_shader"><strong>apply_shader</strong></a>(shdrGroup, objs)</dt><dd><tt>Applies&nbsp;a&nbsp;shader&nbsp;to&nbsp;a&nbsp;object&nbsp;or&nbsp;list&nbsp;of&nbsp;objects<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;shdrGroup&nbsp;[str]&nbsp;:&nbsp;is&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;Shader&nbsp;Set&nbsp;used&nbsp;to&nbsp;apply&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shader&nbsp;to&nbsp;an&nbsp;object.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;objs&nbsp;[tuple]&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;can&nbsp;be&nbsp;the&nbsp;name&nbsp;or&nbsp;list&nbsp;names&nbsp;of&nbsp;objects&nbsp;that&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shader&nbsp;will&nbsp;be&nbsp;applied&nbsp;to.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+On&nbsp;Exit:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;object&nbsp;is&nbsp;added&nbsp;to&nbsp;the&nbsp;shader&nbsp;group&nbsp;connected&nbsp;to&nbsp;the&nbsp;shader.</tt></dd></dl>
+ <dl><dt><a name="-check_shader_node"><strong>check_shader_node</strong></a>(sNode)</dt><dd><tt>Checks&nbsp;if&nbsp;the&nbsp;named&nbsp;node&nbsp;is&nbsp;a&nbsp;shading&nbsp;node.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sNode&nbsp;[str]&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;shading&nbsp;node.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;True&nbsp;if&nbsp;'sNode'&nbsp;is&nbsp;a&nbsp;shader&nbsp;node,&nbsp;else&nbsp;returns&nbsp;False</tt></dd></dl>
+ <dl><dt><a name="-closest_colour"><strong>closest_colour</strong></a>(colour, cColours)</dt><dd><tt>Used&nbsp;to&nbsp;compare&nbsp;a&nbsp;list&nbsp;of&nbsp;colours&nbsp;to&nbsp;one&nbsp;colour&nbsp;and&nbsp;returns&nbsp;the&nbsp;colour<br>
+that&nbsp;matches&nbsp;it&nbsp;the&nbsp;most.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;colour&nbsp;[tuple]&nbsp;&nbsp;&nbsp;:&nbsp;A&nbsp;3&nbsp;tuple&nbsp;float&nbsp;value&nbsp;containing&nbsp;the&nbsp;RGB&nbsp;values&nbsp;for<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;colour.&nbsp;This&nbsp;is&nbsp;the&nbsp;colour&nbsp;that&nbsp;the&nbsp;other&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;colours&nbsp;will&nbsp;be&nbsp;compared&nbsp;to.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cColours&nbsp;[tuple]&nbsp;:&nbsp;A&nbsp;tuple&nbsp;of&nbsp;3&nbsp;tuple&nbsp;float&nbsp;RGBs&nbsp;that&nbsp;will&nbsp;be&nbsp;compared&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;the&nbsp;'colour'<br>
+&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;the&nbsp;3&nbsp;tuple&nbsp;of&nbsp;the&nbsp;colour&nbsp;that&nbsp;most&nbsp;closly&nbsp;matches&nbsp;'colour&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;the&nbsp;tuple&nbsp;'cColours'</tt></dd></dl>
+ <dl><dt><a name="-connect_attributes"><strong>connect_attributes</strong></a>(iObject, oObject, *args)</dt><dd><tt>Used&nbsp;to&nbsp;connect&nbsp;multiple&nbsp;attributes&nbsp;from&nbsp;two&nbsp;objects&nbsp;with&nbsp;ease&nbsp;<br>
+instead&nbsp;of&nbsp;continuously&nbsp;writing&nbsp;out&nbsp;lines&nbsp;of&nbsp;code&nbsp;for&nbsp;each&nbsp;attribute.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;iObject&nbsp;[str]&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;input&nbsp;object&nbsp;for&nbsp;which&nbsp;the&nbsp;attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;be&nbsp;input&nbsp;from<br>
+&nbsp;&nbsp;&nbsp;&nbsp;oObject&nbsp;[str]&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;output&nbsp;object&nbsp;for&nbsp;which&nbsp;the&nbsp;input<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;attributes&nbsp;will&nbsp;be&nbsp;input&nbsp;into.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*args&nbsp;[tuple]&nbsp;:&nbsp;A&nbsp;tuple&nbsp;of&nbsp;2&nbsp;tuple&nbsp;string&nbsp;attributes&nbsp;for&nbsp;connecting.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;first&nbsp;being&nbsp;the&nbsp;input,&nbsp;the&nbsp;second&nbsp;being&nbsp;the&nbsp;output.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Connects&nbsp;any&nbsp;possible&nbsp;attributes&nbsp;from&nbsp;the&nbsp;'iObject's&nbsp;value&nbsp;to&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'oObjects's&nbsp;value.</tt></dd></dl>
+ <dl><dt><a name="-create_shader_node"><strong>create_shader_node</strong></a>(node, flags<font color="#909090">=False</font>, **kwargs)</dt><dd><tt>Combines&nbsp;the&nbsp;creation&nbsp;of&nbsp;a&nbsp;node&nbsp;with&nbsp;the&nbsp;setting&nbsp;of&nbsp;attributes&nbsp;of&nbsp;the&nbsp;<br>
+newly&nbsp;created&nbsp;shader.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;node&nbsp;[str]&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;shading&nbsp;node&nbsp;type.&nbsp;An&nbsp;example&nbsp;of&nbsp;this&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'lambert'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;flags&nbsp;[bool]&nbsp;:&nbsp;If&nbsp;True,&nbsp;then&nbsp;the&nbsp;node&nbsp;will&nbsp;not&nbsp;be&nbsp;created&nbsp;but&nbsp;the&nbsp;flags<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;the&nbsp;node&nbsp;type&nbsp;will&nbsp;be&nbsp;returned&nbsp;instead.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;**kwargs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Combining&nbsp;both&nbsp;the&nbsp;nodes&nbsp;for&nbsp;creating&nbsp;a&nbsp;shader&nbsp;node&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;setting&nbsp;of&nbsp;attributes.&nbsp;The&nbsp;flags&nbsp;for&nbsp;creating&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shader&nbsp;are&nbsp;as&nbsp;follows:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{'asLight':&nbsp;bool,&nbsp;'asPostProcess':&nbsp;bool,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'asRendering':&nbsp;bool,&nbsp;'asShader':&nbsp;bool,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'asTexture':&nbsp;bool,&nbsp;'asUtility':&nbsp;bool,&nbsp;'name':&nbsp;str,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'parent':&nbsp;str}<br>
+&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Creates&nbsp;the&nbsp;shader&nbsp;node,&nbsp;sets&nbsp;the&nbsp;specified&nbsp;attributes&nbsp;and&nbsp;returns<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;shader</tt></dd></dl>
+ <dl><dt><a name="-create_shading_group"><strong>create_shading_group</strong></a>(shdrName, name<font color="#909090">=None</font>)</dt><dd><tt>Creates&nbsp;a&nbsp;shading&nbsp;group&nbsp;for&nbsp;the&nbsp;specified&nbsp;shader.&nbsp;<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;shdrName&nbsp;[str]&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;shader&nbsp;in&nbsp;the&nbsp;scene.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;[str]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;you&nbsp;wish&nbsp;to&nbsp;give&nbsp;the&nbsp;new&nbsp;shader&nbsp;(followed&nbsp;by<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'SG'&nbsp;for&nbsp;'Shading&nbsp;Group'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;shading&nbsp;group.</tt></dd></dl>
+ <dl><dt><a name="-find_empty_entry_value"><strong>find_empty_entry_value</strong></a>(eList)</dt><dd><tt>Used&nbsp;to&nbsp;find&nbsp;an&nbsp;empty&nbsp;value&nbsp;in&nbsp;an&nbsp;entry&nbsp;list&nbsp;used&nbsp;in&nbsp;Maya.&nbsp;This&nbsp;is&nbsp;<br>
+primarily&nbsp;used&nbsp;for&nbsp;ramp&nbsp;colour&nbsp;entry&nbsp;lists&nbsp;and&nbsp;used&nbsp;so&nbsp;that&nbsp;excess&nbsp;entries<br>
+are&nbsp;not&nbsp;created&nbsp;in&nbsp;an&nbsp;entry&nbsp;list<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;eList&nbsp;[tuple]&nbsp;:&nbsp;This&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;the&nbsp;current&nbsp;index&nbsp;entry&nbsp;values.&nbsp;This&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;can&nbsp;be&nbsp;found&nbsp;using&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"cmds.getAttr('%s.colorEntryList'&nbsp;%&nbsp;ramp,&nbsp;mi=True)"<br>
+&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;the&nbsp;int&nbsp;of&nbsp;the&nbsp;lowest&nbsp;available&nbsp;entry&nbsp;value&nbsp;for&nbsp;the&nbsp;entry&nbsp;list.</tt></dd></dl>
+ <dl><dt><a name="-fit_to_group_bbox"><strong>fit_to_group_bbox</strong></a>(obj, group)</dt><dd><tt>Used&nbsp;to&nbsp;scale&nbsp;and&nbsp;translate&nbsp;a&nbsp;3d&nbsp;placement&nbsp;node&nbsp;used&nbsp;for&nbsp;<br>
+onto&nbsp;the&nbsp;size&nbsp;of&nbsp;a&nbsp;group&nbsp;or&nbsp;object.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;obj&nbsp;[str]&nbsp;&nbsp;&nbsp;:&nbsp;is&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;object&nbsp;or&nbsp;projection&nbsp;you&nbsp;want&nbsp;to&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resize<br>
+&nbsp;&nbsp;&nbsp;&nbsp;group&nbsp;[str]&nbsp;:&nbsp;is&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;object&nbsp;or&nbsp;group&nbsp;(usually&nbsp;Shading&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Group)&nbsp;from&nbsp;which&nbsp;the&nbsp;bounding&nbsp;box&nbsp;will&nbsp;be&nbsp;retrieved&nbsp;and&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;will&nbsp;be&nbsp;used&nbsp;to&nbsp;fit&nbsp;to.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+On&nbsp;Exit:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;"obj"&nbsp;is&nbsp;resized&nbsp;to&nbsp;the&nbsp;exact&nbsp;world&nbsp;bounding&nbsp;box&nbsp;of&nbsp;"group"</tt></dd></dl>
+ <dl><dt><a name="-get_obj_attr"><strong>get_obj_attr</strong></a>(obj, **kwargs)</dt><dd><tt>Creates&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;attributes&nbsp;and&nbsp;values&nbsp;for&nbsp;an&nbsp;object.&nbsp;Mainly<br>
+used&nbsp;to&nbsp;query&nbsp;an&nbsp;attributes&nbsp;value&nbsp;and&nbsp;type&nbsp;for&nbsp;ease&nbsp;of&nbsp;scripting.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;obj&nbsp;[str]&nbsp;:&nbsp;Is&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;object&nbsp;or&nbsp;node&nbsp;you&nbsp;want&nbsp;the&nbsp;current&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;attributes,&nbsp;values&nbsp;and&nbsp;type&nbsp;from.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;**kwargs&nbsp;&nbsp;:&nbsp;The&nbsp;keyword&nbsp;parameters&nbsp;for&nbsp;the&nbsp;function&nbsp;'cmds.listAttr'.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;is&nbsp;so&nbsp;all&nbsp;the&nbsp;object&nbsp;attributes&nbsp;listed&nbsp;are&nbsp;retrieved&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;the&nbsp;object.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+On&nbsp;Exit:&nbsp;return&nbsp;a&nbsp;dictionary&nbsp;with&nbsp;'dict[attribute]'&nbsp;=&nbsp;'dict[value]'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;'dict[type]'</tt></dd></dl>
+ <dl><dt><a name="-get_vertex_normals"><strong>get_vertex_normals</strong></a>(pObject)</dt><dd><tt>Gathers&nbsp;all&nbsp;the&nbsp;normal&nbsp;directions&nbsp;for&nbsp;all&nbsp;the&nbsp;vertices&nbsp;of&nbsp;a&nbsp;poly&nbsp;object.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pObject&nbsp;[str]&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;a&nbsp;polygonal&nbsp;object&nbsp;from&nbsp;the&nbsp;scene.<br>
+&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;all&nbsp;the&nbsp;vertex&nbsp;normals,&nbsp;averaged&nbsp;from&nbsp;each&nbsp;adjacent<br>
+&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;normal.</tt></dd></dl>
+ <dl><dt><a name="-list_connectable_attributes"><strong>list_connectable_attributes</strong></a>(node)</dt><dd><tt>Lists&nbsp;the&nbsp;possible&nbsp;connectable&nbsp;attributes&nbsp;for&nbsp;a&nbsp;node.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;node&nbsp;[str]&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;node&nbsp;in&nbsp;the&nbsp;scene.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;the&nbsp;attributes&nbsp;that&nbsp;can&nbsp;be&nbsp;connected&nbsp;to&nbsp;and/or&nbsp;from<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;node.</tt></dd></dl>
+ <dl><dt><a name="-mel_file_import"><strong>mel_file_import</strong></a>(name)</dt><dd><tt>Used&nbsp;to&nbsp;import&nbsp;mel&nbsp;scripts&nbsp;into&nbsp;the&nbsp;Maya&nbsp;scene&nbsp;so&nbsp;they&nbsp;can&nbsp;be&nbsp;used&nbsp;by&nbsp;<br>
+the&nbsp;programming&nbsp;for&nbsp;use&nbsp;later.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;[str]&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;source&nbsp;script&nbsp;inside&nbsp;the&nbsp;Maya&nbsp;directory<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;be&nbsp;imported.<br>
+&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;Maya&nbsp;script&nbsp;will&nbsp;be&nbsp;imported&nbsp;into&nbsp;the&nbsp;scene.</tt></dd></dl>
+ <dl><dt><a name="-point_positions"><strong>point_positions</strong></a>(pObject)</dt><dd><tt>Finds&nbsp;the&nbsp;location&nbsp;of&nbsp;all&nbsp;the&nbsp;vertex&nbsp;points&nbsp;of&nbsp;a&nbsp;polygonal&nbsp;object&nbsp;in<br>
+world&nbsp;space.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pObject&nbsp;[str]&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;a&nbsp;polygonal&nbsp;object&nbsp;from&nbsp;the&nbsp;scene.<br>
+&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;all&nbsp;the&nbsp;vertex&nbsp;point&nbsp;positions&nbsp;of&nbsp;the&nbsp;object.</tt></dd></dl>
+ <dl><dt><a name="-poly_check"><strong>poly_check</strong></a>(dagObj)</dt><dd><tt>Used&nbsp;to&nbsp;check&nbsp;if&nbsp;the&nbsp;specified&nbsp;object&nbsp;is&nbsp;a&nbsp;polygon&nbsp;object.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dagObj&nbsp;[str]&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;DAG&nbsp;object&nbsp;from&nbsp;the&nbsp;scene.<br>
+&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;object&nbsp;is&nbsp;a&nbsp;polygon&nbsp;object.&nbsp;Else,&nbsp;it&nbsp;returns&nbsp;False.</tt></dd></dl>
+ <dl><dt><a name="-set_attributes"><strong>set_attributes</strong></a>(obj, **kwargs)</dt><dd><tt>Used&nbsp;to&nbsp;set&nbsp;multiple&nbsp;attributes&nbsp;of&nbsp;a&nbsp;single&nbsp;object&nbsp;with&nbsp;ease&nbsp;instead&nbsp;of<br>
+continuously&nbsp;writing&nbsp;out&nbsp;lines&nbsp;of&nbsp;code.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;obj&nbsp;[str]&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;object&nbsp;to&nbsp;which&nbsp;you&nbsp;wish&nbsp;to&nbsp;set&nbsp;attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;**kwargs&nbsp;&nbsp;:&nbsp;Any&nbsp;name&nbsp;of&nbsp;the&nbsp;an&nbsp;attribute&nbsp;followed&nbsp;by&nbsp;the&nbsp;value&nbsp;to&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assign.<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Sets&nbsp;the&nbsp;attributes&nbsp;specified&nbsp;with&nbsp;the&nbsp;specified&nbsp;values&nbsp;to&nbsp;the&nbsp;object.</tt></dd></dl>
+ <dl><dt><a name="-setup_graph_values"><strong>setup_graph_values</strong></a>(gVals)</dt><dd><tt>Used&nbsp;to&nbsp;organise&nbsp;string&nbsp;graph&nbsp;values&nbsp;to&nbsp;then&nbsp;be&nbsp;stored&nbsp;in&nbsp;a&nbsp;Maya&nbsp;Option&nbsp;<br>
+Variable.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;gVals&nbsp;[str]&nbsp;:&nbsp;A&nbsp;string&nbsp;returned&nbsp;from&nbsp;or&nbsp;used&nbsp;by&nbsp;a&nbsp;graph.&nbsp;This&nbsp;can<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;be&nbsp;a&nbsp;value&nbsp;from&nbsp;a&nbsp;soft&nbsp;select&nbsp;curve&nbsp;or&nbsp;any&nbsp;other<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;curve&nbsp;values.&nbsp;The&nbsp;formatting&nbsp;is&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ouput,input,interpolation&nbsp;all&nbsp;being&nbsp;int&nbsp;values&nbsp;in&nbsp;a&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string.&nbsp;See&nbsp;the&nbsp;dictionary&nbsp;SSELECT_CURVES&nbsp;for&nbsp;an&nbsp;example.<br>
+&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;a&nbsp;list&nbsp;with&nbsp;each&nbsp;curve&nbsp;point&nbsp;stored&nbsp;in&nbsp;a&nbsp;separate&nbsp;string.</tt></dd></dl>
+ <dl><dt><a name="-setup_key_frames"><strong>setup_key_frames</strong></a>(node, attr, vals, fp<font color="#909090">=0</font>)</dt><dd><tt>Used&nbsp;to&nbsp;setup&nbsp;a&nbsp;list&nbsp;of&nbsp;values&nbsp;to&nbsp;a&nbsp;nodes&nbsp;attribute&nbsp;and&nbsp;keyframe&nbsp;them&nbsp;<br>
+with&nbsp;optional&nbsp;padding.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;node&nbsp;[str]&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;node&nbsp;or&nbsp;object&nbsp;to&nbsp;which&nbsp;the&nbsp;attribute<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'attr'&nbsp;applies&nbsp;to.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;attr&nbsp;[str]&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;attribute&nbsp;to&nbsp;which&nbsp;all&nbsp;the&nbsp;values&nbsp;will<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;be&nbsp;assigned&nbsp;to.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;vals&nbsp;[tuple]&nbsp;:&nbsp;This&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;values&nbsp;to&nbsp;be&nbsp;assigned&nbsp;to&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;attribute.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;fp&nbsp;[int]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;number&nbsp;of&nbsp;frames&nbsp;in-between&nbsp;each&nbsp;of&nbsp;the&nbsp;keyframes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;which&nbsp;the&nbsp;values&nbsp;will&nbsp;be&nbsp;set&nbsp;to.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Sets&nbsp;the&nbsp;values&nbsp;to&nbsp;the&nbsp;nodes&nbsp;attribute&nbsp;and&nbsp;keyframes&nbsp;it.&nbsp;It&nbsp;will&nbsp;also<br>
+&nbsp;&nbsp;&nbsp;&nbsp;framepad&nbsp;for&nbsp;any&nbsp;value&nbsp;higher&nbsp;then&nbsp;0.</tt></dd></dl>
+ <dl><dt><a name="-soft_selection"><strong>soft_selection</strong></a>()</dt><dd><tt>Returns&nbsp;the&nbsp;currently&nbsp;selected&nbsp;or&nbsp;influenced&nbsp;vertex&nbsp;points&nbsp;from&nbsp;the&nbsp;use<br>
+of&nbsp;soft&nbsp;select.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;In&nbsp;Maya,&nbsp;soft&nbsp;select&nbsp;must&nbsp;be&nbsp;enabled&nbsp;and&nbsp;used&nbsp;to&nbsp;select&nbsp;an&nbsp;object.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Otherwise,&nbsp;the&nbsp;result&nbsp;will&nbsp;be&nbsp;an&nbsp;empty&nbsp;list.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+On&nbsp;Exit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;all&nbsp;the&nbsp;vertices&nbsp;in&nbsp;range&nbsp;or&nbsp;influence&nbsp;by&nbsp;the&nbsp;soft<br>
+&nbsp;&nbsp;&nbsp;&nbsp;selects&nbsp;rolloff&nbsp;distance&nbsp;and&nbsp;curve.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>PACKED_TYPES</strong> = [u'Int32Array', u'doubleArray', u'attributeAlias']<br>
+<strong>SHADER_NODE_FLAGS</strong> = {'asLight': &lt;type 'bool'&gt;, 'asPostProcess': &lt;type 'bool'&gt;, 'asRendering': &lt;type 'bool'&gt;, 'asShader': &lt;type 'bool'&gt;, 'asTexture': &lt;type 'bool'&gt;, 'asUtility': &lt;type 'bool'&gt;, 'name': &lt;type 'str'&gt;, 'parent': &lt;type 'str'&gt;}<br>
+<strong>SSELECT_CURVES</strong> = &lt;mayaSnippet.multi_key_dict.multi_key_dict object&gt;<br>
+<strong>TIME_VALS</strong> = ['hour', 'min', 'sec', 'millisec', 'game', 'film', 'pal', 'ntsc', 'show', 'palf', 'ntscf']<br>
+<strong>UNPACK_TYPES</strong> = [u'short2', u'short3', u'long2', u'long3', u'float2', u'float3', u'double2', u'double3', u'matrix', u'pointArray', u'vectorArray', u'stringArray', u'cone', u'reflectanceRGB', u'spectrumRGB', u'componentList']<br>
+<strong>uALL_SHADING_NODES</strong> = [u'ShaderfxShader', u'anisotropic', u'blinn', u'cgfxShader', u'dgs_material', u'dielectric_material', u'displacementShader', u'envFog', u'fluidShape', u'fluidTexture2D', u'fluidTexture3D', u'hairTubeShader', u'lambert', u'layeredShader', u'lightFog', u'materialFacade', u'mi_car_paint_phen', u'mi_car_paint_phen_x', u'mi_car_paint_phen_x_passes', u'mi_metallic_paint', ...]<br>
+<strong>uAll_NODES</strong> = [u'AISEnvFacade', u'AlembicNode', u'ComputeGlobal', u'ComputeLocal', u'CustomRigDefaultMappingNode', u'CustomRigRetargeterNode', u'HIKCharacterNode', u'HIKCharacterStateClient', u'HIKControlSetNode', u'HIKEffector2State', u'HIKEffectorFromCharacter', u'HIKFK2State', u'HIKPinning2State', u'HIKProperty2State', u'HIKRetargeterNode', u'HIKSK2State', u'HIKSkeletonGeneratorNode', u'HIKSolverNode', u'HIKState2Effector', u'HIKState2FK', ...]</td></tr></table>
+</body></html>

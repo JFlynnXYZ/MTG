@@ -1,0 +1,160 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module mayaSnippet.multi_key_dict</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="mayaSnippet.html"><font color="#ffffff">mayaSnippet</font></a>.multi_key_dict</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:///H:/users/jon/documents/maya/scripts/mayasnippet/multi_key_dict.py">h:\users\jon\documents\maya\scripts\mayasnippet\multi_key_dict.py</a></font></td></tr></table>
+    <p><tt>Created&nbsp;on&nbsp;26&nbsp;May&nbsp;2013<br>
+&nbsp;<br>
+@author:&nbsp;lukasz.forynski<br>
+&nbsp;<br>
+@brief:&nbsp;Implementation&nbsp;of&nbsp;the&nbsp;multi-key&nbsp;dictionary.<br>
+&nbsp;<br>
+https://github.com/formiaczek/python_data_structures<br>
+___________________________________<br>
+&nbsp;<br>
+&nbsp;Copyright&nbsp;(c)&nbsp;2013&nbsp;Lukasz&nbsp;Forynski&nbsp;&lt;lukasz.forynski@gmail.com&gt;<br>
+&nbsp;<br>
+Permission&nbsp;is&nbsp;hereby&nbsp;granted,&nbsp;free&nbsp;of&nbsp;charge,&nbsp;to&nbsp;any&nbsp;person&nbsp;obtaining&nbsp;a&nbsp;copy&nbsp;of&nbsp;this<br>
+software&nbsp;and&nbsp;associated&nbsp;documentation&nbsp;files&nbsp;(the&nbsp;"Software"),&nbsp;to&nbsp;deal&nbsp;in&nbsp;the&nbsp;Software<br>
+without&nbsp;restriction,&nbsp;including&nbsp;without&nbsp;limitation&nbsp;the&nbsp;rights&nbsp;to&nbsp;use,&nbsp;copy,&nbsp;modify,&nbsp;merge,<br>
+publish,&nbsp;distribute,&nbsp;sub-license,&nbsp;and/or&nbsp;sell&nbsp;copies&nbsp;of&nbsp;the&nbsp;Software,&nbsp;and&nbsp;to&nbsp;permit&nbsp;persons<br>
+to&nbsp;whom&nbsp;the&nbsp;Software&nbsp;is&nbsp;furnished&nbsp;to&nbsp;do&nbsp;so,&nbsp;subject&nbsp;to&nbsp;the&nbsp;following&nbsp;conditions:<br>
+&nbsp;<br>
+-&nbsp;The&nbsp;above&nbsp;copyright&nbsp;notice&nbsp;and&nbsp;this&nbsp;permission&nbsp;notice&nbsp;shall&nbsp;be&nbsp;included&nbsp;in&nbsp;all&nbsp;copies<br>
+or&nbsp;substantial&nbsp;portions&nbsp;of&nbsp;the&nbsp;Software.<br>
+&nbsp;<br>
+THE&nbsp;SOFTWARE&nbsp;IS&nbsp;PROVIDED&nbsp;"AS&nbsp;IS",&nbsp;WITHOUT&nbsp;WARRANTY&nbsp;OF&nbsp;ANY&nbsp;KIND,&nbsp;EXPRESS&nbsp;OR&nbsp;IMPLIED,<br>
+INCLUDING&nbsp;BUT&nbsp;NOT&nbsp;LIMITED&nbsp;TO&nbsp;THE&nbsp;WARRANTIES&nbsp;OF&nbsp;MERCHANTABILITY,&nbsp;FITNESS&nbsp;FOR&nbsp;A&nbsp;PARTICULAR<br>
+PURPOSE&nbsp;AND&nbsp;NONINFRINGEMENT.&nbsp;IN&nbsp;NO&nbsp;EVENT&nbsp;SHALL&nbsp;THE&nbsp;AUTHORS&nbsp;OR&nbsp;COPYRIGHT&nbsp;HOLDERS&nbsp;BE&nbsp;LIABLE<br>
+FOR&nbsp;ANY&nbsp;CLAIM,&nbsp;DAMAGES&nbsp;OR&nbsp;OTHER&nbsp;LIABILITY,&nbsp;WHETHER&nbsp;IN&nbsp;AN&nbsp;ACTION&nbsp;OF&nbsp;CONTRACT,&nbsp;TORT&nbsp;OR<br>
+OTHERWISE,&nbsp;ARISING&nbsp;FROM,&nbsp;OUT&nbsp;OF&nbsp;OR&nbsp;IN&nbsp;CONNECTION&nbsp;WITH&nbsp;THE&nbsp;SOFTWARE&nbsp;OR&nbsp;THE&nbsp;USE&nbsp;OR&nbsp;OTHER<br>
+DEALINGS&nbsp;IN&nbsp;THE&nbsp;SOFTWARE.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="mayaSnippet.multi_key_dict.html#multi_key_dict">multi_key_dict</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="multi_key_dict">class <strong>multi_key_dict</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Purpose&nbsp;of&nbsp;this&nbsp;type&nbsp;is&nbsp;to&nbsp;provie&nbsp;a&nbsp;multi-key&nbsp;dictionary.<br>
+This&nbsp;kind&nbsp;of&nbsp;dictionary&nbsp;has&nbsp;a&nbsp;similar&nbsp;interface&nbsp;to&nbsp;the&nbsp;standard&nbsp;dictionary,&nbsp;and&nbsp;indeed&nbsp;if&nbsp;used&nbsp;<br>
+with&nbsp;single&nbsp;key&nbsp;key&nbsp;elements&nbsp;-&nbsp;it's&nbsp;behaviour&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;for&nbsp;a&nbsp;standard&nbsp;dict().<br>
+&nbsp;<br>
+However&nbsp;it&nbsp;also&nbsp;allows&nbsp;for&nbsp;creation&nbsp;elements&nbsp;using&nbsp;multiple&nbsp;keys&nbsp;(using&nbsp;tuples/lists).<br>
+Such&nbsp;elements&nbsp;can&nbsp;be&nbsp;accessed&nbsp;using&nbsp;either&nbsp;of&nbsp;those&nbsp;keys&nbsp;(e.g&nbsp;read/updated/deleted).<br>
+Dictionary&nbsp;provides&nbsp;also&nbsp;extended&nbsp;interface&nbsp;for&nbsp;iterating&nbsp;over&nbsp;items&nbsp;and&nbsp;keys&nbsp;by&nbsp;the&nbsp;key&nbsp;type.<br>
+This&nbsp;can&nbsp;be&nbsp;useful&nbsp;e.g.:&nbsp;when&nbsp;creating&nbsp;dictionaries&nbsp;with&nbsp;(index,name)&nbsp;allowing&nbsp;to&nbsp;iterate&nbsp;over<br>
+items&nbsp;using&nbsp;either:&nbsp;names&nbsp;or&nbsp;indexes.&nbsp;It&nbsp;can&nbsp;be&nbsp;useful&nbsp;for&nbsp;many&nbsp;many&nbsp;other&nbsp;similar&nbsp;use-cases,<br>
+and&nbsp;there&nbsp;is&nbsp;no&nbsp;limit&nbsp;to&nbsp;the&nbsp;number&nbsp;of&nbsp;keys&nbsp;used&nbsp;to&nbsp;map&nbsp;to&nbsp;the&nbsp;value.<br>
+&nbsp;<br>
+There&nbsp;are&nbsp;also&nbsp;methods&nbsp;to&nbsp;find&nbsp;other&nbsp;keys&nbsp;mapping&nbsp;to&nbsp;the&nbsp;same&nbsp;value&nbsp;as&nbsp;the&nbsp;specified&nbsp;keys&nbsp;etc.<br>
+Refer&nbsp;to&nbsp;examples&nbsp;and&nbsp;test&nbsp;code&nbsp;to&nbsp;see&nbsp;it&nbsp;in&nbsp;action.<br>
+&nbsp;<br>
+simple&nbsp;example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;k&nbsp;=&nbsp;<a href="#multi_key_dict">multi_key_dict</a>()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;k[100]&nbsp;=&nbsp;'hundred'&nbsp;&nbsp;#&nbsp;add&nbsp;item&nbsp;to&nbsp;the&nbsp;dictionary&nbsp;(as&nbsp;for&nbsp;normal&nbsp;dictionary)<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;but&nbsp;also:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;below&nbsp;creates&nbsp;entry&nbsp;with&nbsp;two&nbsp;possible&nbsp;key&nbsp;types:&nbsp;int&nbsp;and&nbsp;str,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;mapping&nbsp;all&nbsp;keys&nbsp;to&nbsp;the&nbsp;assigned&nbsp;value<br>
+&nbsp;&nbsp;&nbsp;&nbsp;k[1000,&nbsp;'kilo',&nbsp;'k']&nbsp;=&nbsp;'kilo&nbsp;(x1000)'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;k[1000]&nbsp;&nbsp;&nbsp;#&nbsp;will&nbsp;print&nbsp;'kilo&nbsp;(x1000)'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;k['k']&nbsp;&nbsp;#&nbsp;will&nbsp;also&nbsp;print&nbsp;'kilo&nbsp;(x1000)'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;same&nbsp;way&nbsp;objects&nbsp;can&nbsp;be&nbsp;updated,&nbsp;and&nbsp;if&nbsp;an&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;is&nbsp;updated&nbsp;using&nbsp;one&nbsp;key,&nbsp;the&nbsp;new&nbsp;value&nbsp;will<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;be&nbsp;accessible&nbsp;using&nbsp;any&nbsp;other&nbsp;key,&nbsp;e.g.&nbsp;for&nbsp;example&nbsp;above:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;k['kilo']&nbsp;=&nbsp;'kilo'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;k[1000]&nbsp;#&nbsp;will&nbsp;print&nbsp;'kilo'&nbsp;as&nbsp;value&nbsp;was&nbsp;updated<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="multi_key_dict-__delitem__"><strong>__delitem__</strong></a>(self, key)</dt><dd><tt>Called&nbsp;to&nbsp;implement&nbsp;deletion&nbsp;of&nbsp;self[key].</tt></dd></dl>
+
+<dl><dt><a name="multi_key_dict-__getitem__"><strong>__getitem__</strong></a>(self, key)</dt><dd><tt>Return&nbsp;the&nbsp;value&nbsp;at&nbsp;index&nbsp;specified&nbsp;as&nbsp;key.</tt></dd></dl>
+
+<dl><dt><a name="multi_key_dict-__len__"><strong>__len__</strong></a>(self)</dt><dd><tt>Returns&nbsp;number&nbsp;of&nbsp;objects&nbsp;in&nbsp;dictionary.</tt></dd></dl>
+
+<dl><dt><a name="multi_key_dict-__setitem__"><strong>__setitem__</strong></a>(self, keys, value)</dt><dd><tt>Set&nbsp;the&nbsp;value&nbsp;at&nbsp;index&nbsp;(or&nbsp;list&nbsp;of&nbsp;indexes)&nbsp;specified&nbsp;as&nbsp;keys.<br>
+Note,&nbsp;that&nbsp;if&nbsp;multiple&nbsp;key&nbsp;list&nbsp;is&nbsp;specified,&nbsp;either:&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;none&nbsp;of&nbsp;keys&nbsp;should&nbsp;map&nbsp;to&nbsp;an&nbsp;existing&nbsp;item&nbsp;already&nbsp;(item&nbsp;creation),&nbsp;or&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;all&nbsp;of&nbsp;keys&nbsp;should&nbsp;map&nbsp;to&nbsp;exactly&nbsp;the&nbsp;same&nbsp;item&nbsp;(as&nbsp;previously&nbsp;created)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(item&nbsp;update)<br>
+If&nbsp;this&nbsp;is&nbsp;not&nbsp;the&nbsp;case&nbsp;-&nbsp;KeyError&nbsp;is&nbsp;raised.</tt></dd></dl>
+
+<dl><dt><a name="multi_key_dict-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="multi_key_dict-get"><strong>get</strong></a>(self, key, default<font color="#909090">=None</font>)</dt><dd><tt>Return&nbsp;the&nbsp;value&nbsp;at&nbsp;index&nbsp;specified&nbsp;as&nbsp;key.</tt></dd></dl>
+
+<dl><dt><a name="multi_key_dict-get_other_keys"><strong>get_other_keys</strong></a>(self, key, including_current<font color="#909090">=False</font>)</dt><dd><tt>Returns&nbsp;list&nbsp;of&nbsp;other&nbsp;keys&nbsp;that&nbsp;are&nbsp;mapped&nbsp;to&nbsp;the&nbsp;same&nbsp;value&nbsp;as&nbsp;specified&nbsp;key.&nbsp;<br>
+@param&nbsp;key&nbsp;-&nbsp;key&nbsp;for&nbsp;which&nbsp;other&nbsp;keys&nbsp;should&nbsp;be&nbsp;returned.<br>
+@param&nbsp;including_current&nbsp;if&nbsp;set&nbsp;to&nbsp;True&nbsp;-&nbsp;key&nbsp;will&nbsp;also&nbsp;appear&nbsp;on&nbsp;this&nbsp;list.</tt></dd></dl>
+
+<dl><dt><a name="multi_key_dict-has_key"><strong>has_key</strong></a>(self, key)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;this&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;contains&nbsp;an&nbsp;item&nbsp;referenced&nbsp;by&nbsp;the&nbsp;key.</tt></dd></dl>
+
+<dl><dt><a name="multi_key_dict-items"><strong>items</strong></a>(self, key_type<font color="#909090">=None</font>, return_all_keys<font color="#909090">=False</font>)</dt><dd><tt>Return&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;dictionary's&nbsp;list&nbsp;of&nbsp;(key,&nbsp;value)&nbsp;pairs.<br>
+@param&nbsp;key_type&nbsp;if&nbsp;specified,&nbsp;(key,&nbsp;value)&nbsp;pairs&nbsp;for&nbsp;keys&nbsp;of&nbsp;this&nbsp;type&nbsp;will&nbsp;be&nbsp;returned.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Otherwise&nbsp;list&nbsp;of&nbsp;pairs:&nbsp;((keys),&nbsp;value)&nbsp;for&nbsp;all&nbsp;items&nbsp;will&nbsp;be&nbsp;returned.<br>
+@param&nbsp;return_all_keys&nbsp;if&nbsp;set&nbsp;to&nbsp;True&nbsp;-&nbsp;tuple&nbsp;of&nbsp;keys&nbsp;is&nbsp;retuned&nbsp;instead&nbsp;of&nbsp;a&nbsp;key&nbsp;of&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="multi_key_dict-iteritems"><strong>iteritems</strong></a>(self, key_type<font color="#909090">=None</font>, return_all_keys<font color="#909090">=False</font>)</dt><dd><tt>Returns&nbsp;an&nbsp;iterator&nbsp;over&nbsp;the&nbsp;dictionary's&nbsp;(key,&nbsp;value)&nbsp;pairs.<br>
+@param&nbsp;key_type&nbsp;if&nbsp;specified,&nbsp;iterator&nbsp;will&nbsp;be&nbsp;returning&nbsp;only&nbsp;(key,value)&nbsp;pairs&nbsp;for&nbsp;this&nbsp;type&nbsp;of&nbsp;key.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Otherwise&nbsp;(if&nbsp;not&nbsp;specified)&nbsp;((keys,...),&nbsp;value)&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i.e.&nbsp;(tuple&nbsp;of&nbsp;keys,&nbsp;values)&nbsp;pairs&nbsp;for&nbsp;all&nbsp;items&nbsp;in&nbsp;this&nbsp;dictionary&nbsp;will&nbsp;be&nbsp;generated.<br>
+@param&nbsp;return_all_keys&nbsp;if&nbsp;set&nbsp;to&nbsp;True&nbsp;-&nbsp;tuple&nbsp;of&nbsp;keys&nbsp;is&nbsp;retuned&nbsp;instead&nbsp;of&nbsp;a&nbsp;key&nbsp;of&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="multi_key_dict-iterkeys"><strong>iterkeys</strong></a>(self, key_type<font color="#909090">=None</font>, return_all_keys<font color="#909090">=False</font>)</dt><dd><tt>Returns&nbsp;an&nbsp;iterator&nbsp;over&nbsp;the&nbsp;dictionary's&nbsp;keys.<br>
+@param&nbsp;key_type&nbsp;if&nbsp;specified,&nbsp;iterator&nbsp;for&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;this&nbsp;type&nbsp;will&nbsp;be&nbsp;used.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Otherwise&nbsp;(if&nbsp;not&nbsp;specified)&nbsp;tuples&nbsp;containing&nbsp;all&nbsp;(multiple)&nbsp;keys<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;this&nbsp;dictionary&nbsp;will&nbsp;be&nbsp;generated.<br>
+@param&nbsp;return_all_keys&nbsp;if&nbsp;set&nbsp;to&nbsp;True&nbsp;-&nbsp;tuple&nbsp;of&nbsp;keys&nbsp;is&nbsp;retuned&nbsp;instead&nbsp;of&nbsp;a&nbsp;key&nbsp;of&nbsp;this&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="multi_key_dict-itervalues"><strong>itervalues</strong></a>(self, key_type<font color="#909090">=None</font>)</dt><dd><tt>Returns&nbsp;an&nbsp;iterator&nbsp;over&nbsp;the&nbsp;dictionary's&nbsp;values.<br>
+@param&nbsp;key_type&nbsp;if&nbsp;specified,&nbsp;iterator&nbsp;will&nbsp;be&nbsp;returning&nbsp;only&nbsp;values&nbsp;pointed&nbsp;by&nbsp;keys&nbsp;of&nbsp;this&nbsp;type.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Otherwise&nbsp;(if&nbsp;not&nbsp;specified)&nbsp;all&nbsp;values&nbsp;in&nbsp;this&nbsp;dictinary&nbsp;will&nbsp;be&nbsp;generated.</tt></dd></dl>
+
+<dl><dt><a name="multi_key_dict-keys"><strong>keys</strong></a>(self, key_type<font color="#909090">=None</font>)</dt><dd><tt>Returns&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;dictionary's&nbsp;keys.<br>
+@param&nbsp;key_type&nbsp;if&nbsp;specified,&nbsp;only&nbsp;keys&nbsp;for&nbsp;this&nbsp;type&nbsp;will&nbsp;be&nbsp;returned.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Otherwise&nbsp;list&nbsp;of&nbsp;tuples&nbsp;containing&nbsp;all&nbsp;(multiple)&nbsp;keys&nbsp;will&nbsp;be&nbsp;returned.</tt></dd></dl>
+
+<dl><dt><a name="multi_key_dict-values"><strong>values</strong></a>(self, key_type<font color="#909090">=None</font>)</dt><dd><tt>Returns&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;dictionary's&nbsp;values.<br>
+@param&nbsp;key_type&nbsp;if&nbsp;specified,&nbsp;only&nbsp;values&nbsp;pointed&nbsp;by&nbsp;keys&nbsp;of&nbsp;this&nbsp;type&nbsp;will&nbsp;be&nbsp;returned.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Otherwise&nbsp;list&nbsp;of&nbsp;all&nbsp;values&nbsp;contained&nbsp;in&nbsp;this&nbsp;dictionary&nbsp;will&nbsp;be&nbsp;returned.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-test_multi_key_dict"><strong>test_multi_key_dict</strong></a>()</dt></dl>
+</td></tr></table>
+</body></html>

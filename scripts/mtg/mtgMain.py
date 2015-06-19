@@ -9,7 +9,7 @@ r'''Module of procedures and variables for creating terrain from music.
    also been placed here.
    
        >>> import maya.cmds as cmds
-       >>> import mtg.terrainWave as tw
+       >>> import terrainWave as tw
        >>> obj = cmds.polyPlane(name='terraign', w=24, h=24, sx=30, sy=70)
        >>> befBbox = cmds.exactWorldBoundingBox(obj[0])
        >>> #change musicLocation to a song in your directory to test the functions
@@ -48,7 +48,7 @@ try:
 except:
     print 'ERROR importing modules'
     
-import mtg.terrainWave as tw
+import terrainWave as tw
 
 FILE_DIR = os.path.abspath(__file__)
 MTG_DIRECTORY = os.path.split(FILE_DIR)[0]
