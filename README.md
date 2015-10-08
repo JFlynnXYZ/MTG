@@ -11,7 +11,7 @@ Music Terrain Generator (MTG) for Maya is a script that produces terrain from WA
   - Follow this up with texturing the selected object as well
 
 ### Version
-1.0.0
+1.1.0
 
 ### Tech
 
